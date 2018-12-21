@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_column">
+    <sp_column action="INSERT_OR_UPDATE">
+        <class_name>block-override-left</class_name>
+        <order>1</order>
+        <size>6</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">8c08ae93dbf52700561fb29a6896198d</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>Andy.bourner@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-21 09:00:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c808ae93dbf52700561fb29a6896198f</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_column_c808ae93dbf52700561fb29a6896198f</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-19 14:00:35</sys_updated_on>
+    </sp_column>
+</record_update>

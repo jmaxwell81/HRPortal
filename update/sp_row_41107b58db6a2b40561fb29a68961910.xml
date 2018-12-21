@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_row">
+    <sp_row action="INSERT_OR_UPDATE">
+        <class_name/>
+        <order>2</order>
+        <sp_column display_value="1">c808ae93dbf52700561fb29a6896198f</sp_column>
+        <sp_container/>
+        <sys_class_name>sp_row</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-12-19 13:20:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>41107b58db6a2b40561fb29a68961910</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>2</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_row_41107b58db6a2b40561fb29a68961910</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-19 13:33:37</sys_updated_on>
+    </sp_row>
+</record_update>

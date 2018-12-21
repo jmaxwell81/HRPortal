@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="sn_bae_rtw_transform">0872b4b6dbf1e300e9c39334ca961900</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+
+// Ignore if any fields missing
+if (source.u_gci.nil() || source.u_employeeid.nil() || source.u_trigger_date.nil()) {
+	ignore = true;	
+} else {
+	gs.info('RTW TRANSFORM GCI=' + source.u_gci + '   EMPLOYEEID=' + source.u_employeeid + '   date=' + source.u_trigger_date);	
+	// Try to match GCI / EMPLOYEEID reference
+	var gr_user = new GlideRecord("sys_user");	
+	if (!source.u_gci.nil()) {
+		gr_user.addQuery("u_gci", source.u_gci);
+	} else {
+		gr_user.addQuery("employee_number", source.u_employeeid);	
+	}
+	gr_user.query();
+	if (gr_user.next()){	
+		gs.info('RTW TRANSFORM user=' + gr_user.sys_id + '   manager=' + gr_user.manager + '   date=' + source.u_trigger_date);
+		target.employee = gr_user.sys_id;
+		target.line_manager = gr_user.manager;
+		var date = source.u_trigger_date;
+		var day = date.split("/")[0];
+		var month = date.split("/")[1];
+		var year = date.split("/")[2];
+		target.absence_start = year + "-" + month + "-" + day;
+		/*var startDate = new GlideDate();
+		startDate.getByFormat("dd-MM-yyyy") = source.u_trigger_date;		
+		startDate.setDisplayValue(source.u_trigger_date);		
+		target.absence_start = startDate;*/	
+	} else {
+		ignore = true;		
+	}	
+}
+
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-19 12:54:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5c5a413edbf1e300e9c39334ca9619eb</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>onBefore</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_transform_script_5c5a413edbf1e300e9c39334ca9619eb</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-19 14:36:39</sys_updated_on>
+        <when>onBefore</when>
+    </sys_transform_script>
+</record_update>

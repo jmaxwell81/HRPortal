@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>10</order>
+        <role display_value="x_baes2_hr_portal_admin" name="x_baes2_hr_portal_admin">da8e91b8db7da300e9c39334ca96194d</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:14:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5e8e91b8db7da300e9c39334ca96194e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>da8e91b8db7da300e9c39334ca96194d</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_embedded_help_role_5e8e91b8db7da300e9c39334ca96194e</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:14:30</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

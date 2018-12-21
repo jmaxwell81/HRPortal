@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>sysverb_refreshHRExistenceUsers</action_name>
+        <active>true</active>
+        <client>false</client>
+        <comments>This function is used to update the assessments for the HR Existence Audit, i.e it will replace the associated Users list with the Managers from the latest HR Headcount Import. </comments>
+        <condition/>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style/>
+        <hint/>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Refresh Assessment Users</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[// Use of sysverb_ suppresses the 'No Records Selected' error
+sysverb_refreshHRExistenceUsers();
+
+function sysverb_refreshHRExistenceUsers() {
+   
+    // Retrieve ID for HR Existence Assessment
+	var asRecord = new GlideRecord('u_bae_assessments');
+    if (asRecord.get('u_control.name', 'HR-Employee Existence Audit')) {
+    
+        // Clear any existing Team/Group/User associations
+        var udRecord = new GlideRecord('u_m2m_users_bae_assessments');
+        udRecord.addQuery('u_bae_assessments',asRecord.sys_id);
+        udRecord.query();
+        udRecord.deleteMultiple();
+
+        var ugRecord = new GlideRecord('u_m2m_groups_bae_assessments');
+        ugRecord.addQuery('u_bae_assessments',asRecord.sys_id);
+        ugRecord.query();
+        ugRecord.deleteMultiple();
+        
+        var utRecord = new GlideRecord('u_m2m_bae_teams_bae_assessments');
+        utRecord.addQuery('u_bae_assessments',asRecord.sys_id);
+        utRecord.query();
+        utRecord.deleteMultiple();
+        
+        // Retrieve Managers - From Headcount Import
+        var au = new global.ArrayUtil();
+        var managers = [];
+
+        var hcRecord = new GlideRecord('x_baes2_hr_portal_headcount');
+        hcRecord.addNotNullQuery('employee');
+        hcRecord.addNotNullQuery('line_manager');        
+        hcRecord.query();
+        while (hcRecord.next()) {
+            managers.push(hcRecord.line_manager.sys_id.toString());  			
+        }
+
+        // Create Assessment User References As Necessary
+        var userList = au.unique(managers).toString();
+        var subUsers = userList.split(",");
+        for (var i=0; i < subUsers.length; i++) {        
+            // Create Assessment User Cross Reference?
+            var udRecord = new GlideRecord('u_m2m_users_bae_assessments');
+            udRecord.initialize();
+            udRecord.u_bae_assessments = asRecord.sys_id;
+            udRecord.u_user = subUsers[i];
+            udRecord.insert();
+        }
+	
+        // Inform User That List Updated
+        gs.addInfoMessage('HR Existence Users have been successfully updated');
+    } else {
+        // Inform User That List Update Failed
+        gs.addInfoMessage('HR Existence Users - Control Record Cannot Be Found');    
+    }
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-27 09:06:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>41d2ad9ddb0a2b00e9c39334ca961927</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Refresh Assessment Users</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_ui_action_41d2ad9ddb0a2b00e9c39334ca961927</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-27 11:10:49</sys_updated_on>
+        <table>x_baes2_hr_portal_headcount</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

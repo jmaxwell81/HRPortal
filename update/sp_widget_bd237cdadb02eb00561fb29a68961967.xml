@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope, $rootScope, $timeout, spUtil) {
+	/* widget controller */
+	var c = this;
+	this.data.loading = false;
+	
+	/*if($scope.data.consoleData.overLimit && $scope.data.hasAccess) {
+		$scope.data.isOwner ? spUtil.addErrorMessage($scope.data.overLimitMessage) : spUtil.addErrorMessage($scope.data.overLimitUserMessage);
+	}*/
+	
+	$scope.data.showProjectStatusReport = true;
+	$scope.data.showGantt = false;
+	$scope.data.isSharedUsersOpen = false;
+	$scope.filterOptions = {
+		showHighRiskProjects : false,
+		showProjectsBehindSchedule : false,
+		showProjectsOverbudget : false
+	};
+	
+	$scope.data.inputFiledConsole = {
+		value: $scope.data.consoleId,
+		display_value: $scope.data.consoleData.consoleName,
+		name: 'console'
+	};
+	
+	console.log($scope.data.consoleFilter);
+	
+	$scope.data.config = {
+		sets: true,
+		dotWalking: true,
+		saveFilter: false,
+		loadFilter: false,
+		sortFilter: false,
+		runFilter: false,
+		closeFilter: false,
+		clearFilter : false,
+		outputType : "encoded_query",
+		encodedQuery : $scope.data.consoleData.filter
+	};
+	
+	$scope.showProjectStatusReport = function(){
+		$scope.data.showProjectStatusReport = true;
+		$scope.data.showGantt = false;
+	};
+	
+	$scope.showGanttChart = function(){
+		$scope.data.showProjectStatusReport = false;
+		$scope.data.showGantt = true;
+		$timeout(function() {
+			$rootScope.$broadcast('gantt.render.view');
+		}, 0);
+	};
+	
+	$scope.getFormattedCost = function(cost) {
+		if(!cost) {
+			return " ";
+		}
+		return  (this<0? '(' : '') +
+			$scope.data.currency + (
+			cost>1000000000 ? (parseFloat((cost/1000000000).toFixed(1)) + 'B'):
+			cost>1000000 ? (parseFloat((cost/1000000).toFixed(1)) + 'M'):
+			cost>1000 ?(parseFloat((cost/1000).toFixed(1)) + 'K'):
+			cost==0?'-':cost
+		) + (this<0? ')' : '');
+	};
+	
+	$scope.getSummaryInfo = function(data) {
+		var info = {
+			behind_schedule : 0,
+			high_risk_issue : 0,
+			over_budget : 0,
+			total_cost : 0,
+			behind_schedule_formatted_cost : "",
+			over_budget_formatted_cost : "",
+			high_risk_issue_formatted_cost : ""
+		};
+		
+		var behind_schedule_cost = 0,
+			over_budget_cost = 0,
+			high_risk_cost = 0;
+			
+		for(var i = 0; i<data.length; i++) {
+			if(data[i].behind_schedule) {
+				info.behind_schedule++;
+				behind_schedule_cost = behind_schedule_cost + parseFloat(data[i].cost);
+			}
+			if(data[i].over_budget) {
+				info.over_budget++;
+				over_budget_cost = over_budget_cost + parseFloat(data[i].cost);
+			}
+			if(data[i].risks || data[i].issues) {
+				info.high_risk_issue++;
+				high_risk_cost = high_risk_cost + parseFloat(data[i].cost);
+			}
+		}
+		info.behind_schedule_formatted_cost = $scope.getFormattedCost(behind_schedule_cost);
+		info.over_budget_formatted_cost = $scope.getFormattedCost(over_budget_cost);
+		info.high_risk_issue_formatted_cost = $scope.getFormattedCost(high_risk_cost);
+		info.total_projects_selected = data.length;
+		info.total_cost_selected = '0.00';
+		info.total_cost = 0;
+		info.total_cost_formatted = '0.00';
+		info.total_projects = $scope.data.ganttData.summary.total_projects;
+		return info;
+	};
+	
+	$scope.getFilterCriteria = function() {
+		var filterCriteria = {};
+		for(var filter in $scope.filterOptions) {
+			if($scope.filterOptions[filter]) {
+				filterCriteria[filter] = true;
+			}
+		}
+		return filterCriteria;
+	};
+	
+	$scope.filterGanttData = function() {
+		var data = angular.copy($scope.data.ganttData.tasks, data);
+		var filterCriteria = $scope.getFilterCriteria();
+		if(filterCriteria && Object.keys(filterCriteria).length) {
+			for(var filter in filterCriteria) {
+				if(filter === "showHighRiskProjects") {
+					data = data.filter(function(obj) {
+						if(obj.issues || obj.risks) {
+							return obj;
+						}
+					});
+				}
+				if(filter === "showProjectsBehindSchedule") {
+					data = data.filter(function(obj) {
+						if(obj.behind_schedule) {
+							return obj;
+						}
+					});
+				}
+				if(filter === "showProjectsOverbudget") {
+					data = data.filter(function(obj) {
+						if(obj.over_budget) {
+							return obj;
+						}
+					});
+				}
+			}
+			
+			$rootScope.$broadcast('show.filters');
+		} else {
+			$rootScope.$broadcast('hide.filters');
+		}
+		
+		$rootScope.$broadcast('gantt.update.view', {
+			tasks : data,
+			links : []
+		});
+		
+		$rootScope.$broadcast('update.report.view', {
+			reportData : data
+		});
+	};
+	
+	$scope.updateFilterOptions = function(bHighRisk, bBehindSchedule, bOverBudget) {
+		$scope.filterOptions = {
+			showHighRiskProjects : bHighRisk,
+			showProjectsBehindSchedule : bBehindSchedule,
+			showProjectsOverbudget : bOverBudget
+		};
+	};
+	
+	$scope.$on('toggle.projects.with.high.issues', function(pscope, filter) {
+		$scope.updateFilterOptions(filter, false, false);
+		$scope.clearBehindScheduleFilter();
+		$scope.clearOverBudgetFilter();
+		$scope.filterGanttData();
+	});
+	
+	$scope.$on('toggle.projects.behind.schedule', function(pscope, filter) {
+		$scope.updateFilterOptions(false, filter, false);
+		$scope.clearHighRiskFilter();
+		$scope.clearOverBudgetFilter();
+		$scope.filterGanttData();
+	});
+	
+	$scope.$on('toggle.projects.overbudget', function(pscope, filter) {
+		$scope.updateFilterOptions(false, false, filter);
+		$scope.clearHighRiskFilter();
+		$scope.clearBehindScheduleFilter();
+		$scope.filterGanttData();
+	});
+	
+	$scope.$on("clear.all.filters", function() {
+		$scope.clearHighRiskFilter();
+		$scope.clearBehindScheduleFilter();
+		$scope.clearOverBudgetFilter();
+		$scope.updateFilterOptions(false, false, false);
+		$scope.filterGanttData();
+	});
+	
+	$scope.clearHighRiskFilter = function() {
+		$rootScope.$broadcast('clear.highrisks.filter');
+	};
+	
+	$scope.clearBehindScheduleFilter = function() {
+		$rootScope.$broadcast('clear.behind.schedule.filter');
+	};
+	
+	$scope.clearOverBudgetFilter = function() {
+		$rootScope.$broadcast('clear.overbudget.filter');
+	};
+	
+	$scope.$on('data.loading', function(){
+		c.data.loading = true;
+	});
+	
+	$scope.$on('data.loaded', function(){
+		c.data.loading = false;
+	});
+	
+	$scope.data.ganttData.summary.total_cost_formatted = '0.00';
+	
+	$scope.getFormattedCostForFilter = function() {
+		$scope.data.ganttData.summary = $scope.getSummaryInfo($scope.data.ganttData.tasks);
+	};
+	
+	$scope.getFormattedCostForFilter();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.loader{&#13;
+    position : absolute;&#13;
+    top:0;&#13;
+    left:0;&#13;
+    width: 100%;&#13;
+    height:100%;&#13;
+    color : black;&#13;
+    font-size: 20px;&#13;
+  	z-index: 100;&#13;
+    &#13;
+    &amp;:before{&#13;
+      position: absolute;&#13;
+      content:"";&#13;
+      width:100%;&#13;
+      height:100%;&#13;
+      top: 0;&#13;
+      left: 0;&#13;
+      background: black;&#13;
+      opacity:.2;&#13;
+    }&#13;
+&#13;
+    .loader-content{&#13;
+      position:absolute;&#13;
+      width:100%;&#13;
+      text-align:center;&#13;
+      top:50%;&#13;
+      display:block;&#13;
+      transform: translateY(-50%);&#13;
+      &#13;
+      fa{&#13;
+        font-size : 30px;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+.no-tasks-cntr {&#13;
+  height:100%;&#13;
+  .no-tasks-text {&#13;
+    position: absolute;&#13;
+    top: 50%;&#13;
+    left: 50%;&#13;
+    transform: translateX(-50%) translateY(-50%);&#13;
+    -webkit-transform: translateX(-50%) translateY(-50%);&#13;
+  }&#13;
+}&#13;
+.nav-tabs {&#13;
+  border: none;&#13;
+  li{&#13;
+    background-color: white;&#13;
+    border: 0px;&#13;
+    padding: 0px;&#13;
+    font-size: 16px;&#13;
+    height: auto;&#13;
+    text-align:center;&#13;
+    width : 150px;&#13;
+    margin-bottom: 0px;&#13;
+    &amp;:first-child {&#13;
+      border-top-left-radius : 4px;&#13;
+    }&#13;
+    a {&#13;
+      border-bottom: 3px solid transparent !important;&#13;
+      background: transparent;&#13;
+      border:none;&#13;
+      margin-left: 20px;&#13;
+      color: $color-dark;&#13;
+      padding: 10px 15px;&#13;
+      margin:0px;&#13;
+    }&#13;
+    a:hover{&#13;
+      border-bottom: 3px solid $color-dark !important;&#13;
+      background: transparent;&#13;
+      border:none;&#13;
+    }&#13;
+  }&#13;
+  &#13;
+  li.active{  &#13;
+    a, a:hover, a:focus{&#13;
+      color: $color-blue;&#13;
+	  background-color: $color-lightest;&#13;
+      cursor:default;&#13;
+      border-bottom: 3px solid $color-blue !important;&#13;
+      border:none;&#13;
+      margin:0px;&#13;
+      padding: 10px 15px;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+#project-status-info {&#13;
+  position : relative;&#13;
+}&#13;
+.popover-heading{&#13;
+  padding:10px 0px;&#13;
+  color: black;&#13;
+}&#13;
+.psp-overview-top-hdr-cntr {&#13;
+  background-color : $color-lightest;&#13;
+  .navbar-text {&#13;
+  	margin: 0;&#13;
+    .popover-content {&#13;
+      padding: 0px;&#13;
+    }&#13;
+    .navbar-btn {&#13;
+      margin: 8px;&#13;
+      width: 30px;&#13;
+      height: 30px;&#13;
+      margin-left: 0;&#13;
+    }&#13;
+    .icon-chevron-left {&#13;
+      margin-left: 12px;&#13;
+      margin-top: 10px;&#13;
+      font-size: 18px;&#13;
+    }&#13;
+    .icon-arrow-down-triangle {&#13;
+      font-size: 8pt;&#13;
+      background-color: transparent;&#13;
+      margin-top: 11px;&#13;
+      position: relative;&#13;
+      .console-reference-picker {&#13;
+        top: 0px;&#13;
+        left : 0;&#13;
+        position: absolute;&#13;
+        overflow : hidden;&#13;
+        height: 0;&#13;
+        width : 100%;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+  .icon-list {&#13;
+  	margin-right: 0px !important;&#13;
+  }&#13;
+  .icon-list:before {&#13;
+  	position: relative;&#13;
+    top: -3px;&#13;
+    left: -3px;&#13;
+  }&#13;
+  .edit-portal {&#13;
+    margin-right: 10px;&#13;
+    width: 100%;&#13;
+  }&#13;
+  .add-member {&#13;
+    width : 100%;&#13;
+  }&#13;
+  .navbar-title {&#13;
+  	margin-left: 10px;&#13;
+    margin-top: 12px;&#13;
+    font-size: 18px;&#13;
+    margin-right: 5px;&#13;
+    form label {&#13;
+      margin: 0;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+.edit-report-btn {&#13;
+  margin-top: 10px;&#13;
+  padding: 0px;&#13;
+}&#13;
+.create-entity-cntr {&#13;
+  margin: 10px 0;&#13;
+}&#13;
+.ribbons-cntr {&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+.total-projects-high-risk-cntr {&#13;
+  min-width : 227px;&#13;
+  .ribbon-hdr {&#13;
+  	min-width: 225px;&#13;
+  }&#13;
+}&#13;
+.psp-overview-top-rbns-cntr {&#13;
+  padding-top: 15px;&#13;
+  margin: 0px 30px 15px 30px;  &#13;
+  .top-ribbon {&#13;
+    margin-bottom: 0px;&#13;
+    &amp;.active {&#13;
+      color: $color-blue;&#13;
+      .ribbon-hdr {&#13;
+      	color: white;&#13;
+      	background-color: $color-blue;&#13;
+        border-bottom: 1px solid $color-blue;;&#13;
+      }&#13;
+    }&#13;
+    &amp;.actionable {&#13;
+      cursor : pointer;&#13;
+    }&#13;
+    h5 {&#13;
+      margin-left: 15px;&#13;
+      margin-top: 15px;&#13;
+    }&#13;
+    h1 {&#13;
+      text-align : center;&#13;
+      margin : 15px 25px 0 25px;&#13;
+    }&#13;
+    p {&#13;
+      text-align : center;&#13;
+      min-height: 20px;&#13;
+    }&#13;
+  }&#13;
+  .top-ribbon:last-of-type {&#13;
+  	margin-right: 0px;&#13;
+  }&#13;
+}&#13;
+.active-filters-cntr {&#13;
+  margin-top: 7px;&#13;
+  .removable-filtes {&#13;
+  	padding-left: 15px;&#13;
+  }&#13;
+  .cost-selected-cntr {&#13;
+  	margin: 7px 15px;&#13;
+    color: $color-darker;&#13;
+  }&#13;
+  .selected-projects-cntr {&#13;
+  	margin: 7px 10px;&#13;
+    color: $color-darker;&#13;
+  }&#13;
+  .ribbon-filter {&#13;
+  	background-color: $color-blue;&#13;
+    color: white;&#13;
+    padding: 5px 15px;&#13;
+    border-radius: 50px;&#13;
+    margin-right : 15px;&#13;
+    .icon-cross {&#13;
+      font-size: 12px;&#13;
+      position: relative;&#13;
+      bottom: 1px;&#13;
+      cursor: pointer;&#13;
+    }&#13;
+    .ribbon-filter-text {&#13;
+      margin-right: 10px;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+.select2-container {&#13;
+  margin: 6px 0px;&#13;
+}&#13;
+.status-timeline-cntr {&#13;
+  margin: 20px 45px;&#13;
+  .gantt-cntr {&#13;
+    border-top: 1px solid $border-color;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hr-absence-overview-saved</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element, attrs){
+	var $uibModal = $injector.get('$uibModal');
+	var PSPService = $injector.get('PSPService');
+	var spUtil = $injector.get('spUtil');
+	var $window = $injector.get('$window');
+	var PSPMessages = $injector.get('PSPMessages');
+	var $timeout = $injector.get("$timeout");
+	var $uibModalInstance = null;
+	var $addMemberModalInstance = null;
+	
+	var opts = {
+		size : 'lg',
+		scope: scope,
+		templateUrl : 'absence-portalFilterModal',
+		windowClass: 'filter-modal-window',
+		controller : function($scope){
+			$scope.data = scope.data;
+		}
+	};
+	
+	scope.editPortal = function() {
+		spUtil.get('pps-sn-filter-widget', {
+			table : scope.data.table,
+			config : scope.data.config
+		}).then(function(response) {
+			scope.filterWidget = response;
+		});
+		
+		$uibModalInstance = $uibModal.open(opts);
+	};
+	
+	scope.$on('snfilter:update_query', queryUpdated);
+	
+	function queryUpdated(e, query, table) {
+		scope.data.consoleData.filter = query;
+	}
+	
+	scope.savePortal = function() {
+		PSPService.editPortal(scope.data.consoleData.filter, scope.data.consoleData.consoleName, scope.data.table, scope.data.consoleId)
+			.then(function(data) {
+			scope.data.loading = false;
+			scope.cancel();
+			PSPService.savePreference('com.snc.project_management.last_console.' + scope.data.table, scope.data.consoleId);
+			$window.location.href = "project_status?id=psp_overview&sysparm_sys_class_name=" + scope.data.table + "&sysparm_entity=custom&sysparm_console_id=" + scope.data.consoleId + "&sysparm_title=Project%20Status%20Portal";
+		}, function(data) {
+			scope.data.loading = false;
+			scope.cancel();
+			spUtil.addErrorMessage(PSPMessages.errorEditingFilter);
+		});
+	};
+	
+	scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+		scope.filterWidget = null;
+		$uibModalInstance = null;
+	};
+	scope.showLandingPage = function() {
+		$window.location.href = "/project_status?id=pps_psp&sysparm_show_all_projects=true&sysparm_title=Project%20Status%20Portal&sysparm_sys_class_name=" + scope.data.table;
+	};
+	
+	scope.renderReportssDD = function() {
+		scope.isReportsLoading = true;
+		$timeout(function() {
+			var _ele = angular.element('#entityselector');
+			_ele.select2({
+				placeholder: scope.data.messages.selectMyGantt,
+				width: 200,
+				initSelection : function (element, callback) {
+					var data = {id: element.data('sysId'), text: element.val()};
+					callback(data);
+				},
+				ajax: {
+					url: 'planningconsoleprocessor.do',
+					dataType: 'json',
+					data: function(term, page) {
+						return {
+							sysparm_processor: "PlanningConsoleProcessor",
+							sysparm_name: 'entityList',
+							sysparm_term: term,
+							sysparm_page: page,
+							sysparm_entity: scope.data.entity,
+							sysparm_sys_class_name: scope.data.table
+						};
+					},
+					results: function(data, page) {
+						var more = (page * 30) < data.total;
+						return { results: data.items, more: more };
+					}
+				}
+			});
+				
+			_ele.on('change', scope.projectDDChangeHandler);
+			_ele.select2('data', {id: scope.data.consoleId, text: scope.data.consoleData.consoleName || scope.data.messages.selectMyGantt});
+			scope.isReportsLoading = false;
+		}, 1000);
+	};
+	
+	scope.projectDDChangeHandler = function(evt) {
+		var href = $window.location.href;
+		var regexp = new RegExp(scope.data.consoleId, 'g');
+		if (scope.data.consoleId && regexp.test(href)) {
+			href = href.replace(scope.data.consoleId, evt.val||scope.data.consoleId);
+		}
+		PSPService.savePreference('com.snc.project_management.last_console.' + scope.data.table, evt.val||scope.data.consoleId);
+		$window.location.href = href;
+	};
+	
+	var addMemberOpts = {
+		size : 'lg',
+		scope: scope,
+		templateUrl : 'shared-users',
+		windowClass: 'shared-users-modal-window',
+		prefixEvent: 'shared_users',
+		controller : function($scope){
+			$scope.data = scope.data;
+		}
+	};
+	
+	scope.showUsers = function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		$addMemberModalInstance = $uibModal.open(addMemberOpts);
+	};
+	
+	scope.hideSharedUsers = function(){
+		$addMemberModalInstance.dismiss('cancel');
+		$addMemberModalInstance = null;
+	};
+	
+	scope.$on('shared_users.show.before', function(){
+		scope.data.isSharedUsersOpen = true;
+	});
+
+	scope.$on('shared_users.hide.before', function(){
+		scope.data.isSharedUsersOpen = false;
+	});
+	
+	scope.getUsers = function() {
+		PSPService.getUsers(scope.data.consoleId)
+			.then(function(members) {
+			if(members && members.length) {
+				scope.data.members = members;
+			}
+		}, function(){
+			scope.data.members = [];
+		});
+	};
+	
+	scope.userFilter = scope.data.qualifier;
+	scope.userFilterOpts = {
+		cache: true
+	};
+	
+	scope.inputFieldUser = {
+		value : ""
+	};
+	
+	scope.addUser = function() {
+		$("#add-user").find(".select2-choice").mousedown();
+	};
+	
+	scope.$watch('inputFieldUser.value', function() {
+		var userId = scope.inputFieldUser.value;
+		if(!userId || (userId === scope.data.userId))
+			return;
+		PSPService.editUserInPortal(scope.data.consoleId, userId, "addMemberToConsole")
+			.then(function(result) {
+			if(result && result.members && result.members.length) {
+				scope.data.members = result.members;
+			}
+			scope.showUserList = false;
+		});
+	});
+	
+	scope.removeUser = function(evt) {
+		var target = evt && evt.target && $(evt.target);
+		var userId = target.attr('id');
+		if(userId) {
+			PSPService.editUserInPortal(scope.data.consoleId, userId, "removeMemberFromConsole")
+				.then(function(result) {
+				if(result) {
+					scope.data.members = scope.data.members.filter(function(member) {
+						if(member.id !== userId) {
+							return member;
+						}
+					});
+				}
+			}, function() {
+				
+			});
+		}
+	};
+	
+	scope.showAllReports = function() {
+		$("#show-all-reports").find(".select2-choice").mousedown();
+	};
+	
+	scope.$watch('data.inputFiledConsole.value', function() {
+		var consoleId = scope.data.inputFiledConsole.value;
+		if(scope.data.consoleId === consoleId)
+			return;
+		
+		var href = $window.location.href;
+		var regexp = new RegExp(scope.data.consoleId, 'g');
+		if (scope.data.consoleId && regexp.test(href)) {
+			href = href.replace(scope.data.consoleId, consoleId);
+		}
+		PSPService.savePreference('com.snc.project_management.last_console.' + scope.data.table, consoleId);
+		$window.location.href = href;
+	});
+	
+	scope.isOwner = scope.data.isOwner;
+	scope.getUsers();
+}]]></link>
+        <name>HR Portal - Absence Overview SAVED</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function($sp) {    
+	data.userId = $sp.getParameter('sysparm_user') || gs.getUserID();
+    
+    //var pcProcessor = new PlanningConsoleProcessor(params);
+    data.ganttData = '';
+    data.ownerInfo = '';
+    data.isOwner = true;
+    data.projectStatusReport = $sp.getWidget('hr-absence-summary', {
+        ganttData : data.ganttData,
+        columns: options.columns,
+        metadata: data.metadata
+    });
+    
+    data.sharedUser = $sp.getWidget('psp-shared-user', {
+        sysId : data.consoleId 
+    });
+    
+    data.gantt = $sp.getWidget('psp-gantt', {
+		ganttData : data.ganttData
+	});
+	
+	data.messages = {
+        selectMyGantt : gs.getMessage('Select a report')
+    };
+    data.title = gs.getMessage('Edit Report');
+    data.okLabel = gs.getMessage('OK');
+    data.cancelLabel = gs.getMessage('Cancel');
+    data.loadingText = gs.getMessage('Loading...');
+    data.noTasksAvailable = gs.getMessage('No projects satisfy the specified selection criteria.');
+    data.createReportTitle = gs.getMessage("Create New Report");
+	data.overLimitMessage = gs.getMessage('The Project Status Portal displays only up to {0} projects. The filter criteria returned more than {0} records, update the filter criteria as needed by clicking on the Edit button.', gr.getValue('record_limit'));
+	data.overLimitUserMessage = gs.getMessage('The Project Status Portal displays only up to {0} projects. The filter criteria returned more than {0} records, contact report owner to modify filter criteria to return fewer records.', gr.getValue('record_limit'));
+    
+	if ( data.consoleId ) {
+		//var validator = new BAEPlannedTaskCustomConsoleValidator();
+		var allowed = true;
+		if ( allowed )
+			data.hasAccess = true;
+	}
+	
+    if(!input) {
+        //var ua = new PPMUsageAnalytics();
+        //ua.projectStatusPortalLaunch('console_overview');
+    }
+})($sp);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-30 08:11:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bd237cdadb02eb00561fb29a68961967</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>HR Portal - Absence Overview SAVED</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_widget_bd237cdadb02eb00561fb29a68961967</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 09:34:39</sys_updated_on>
+        <template><![CDATA[<now-message key="An error occurred creating the report. Please try again." value="${An error occurred creating the report. Please try again.}"></now-message>
+<now-message key="An error occurred editing the report. Please try again." value="${An error occurred editing the report. Please try again.}"></now-message>
+<now-message key="Delete" value="${Delete}"></now-message>
+<now-message key="Cancel" value="${Cancel}"></now-message>
+<now-message key="All projects" value="${All projects}"></now-message>
+<now-message key="Planned for the fiscal year" value="${Planned for the fiscal year}"></now-message>
+<now-message key="Add Task Below" value="${Add Task Below}"></now-message>
+<now-message key="Show Previous Month" value="${Show Previous Month}"></now-message>
+<now-message key="Show Next Month" value="${Show Next Month}"></now-message>
+<now-message key="An error occurred deleting the report. Please try again." value="${An error occurred deleting the report. Please try again.}"></now-message>
+<now-message key="Delete Report" value="${Delete Report}"></now-message>
+<now-message key="Are you sure you want to delete" value="${Are you sure you want to delete}"></now-message>
+<div class="psp-overview-cntr" ng-if="data.hasAccess">
+  <div class="loader" ng-if="data.loading">
+    <div class="loader-content">
+      <p class="icon-loading"></p>
+      <p>{{::data.loadingText}}</p>
+    </div>
+  </div>
+  <nav class="psp-overview-top-hdr-cntr">
+  	<div class="container-fluid">
+      <div class="navbar-text col-sm-6 clearfix">
+        <span class="icon-chevron-left pull-left" uib-tooltip="${Show reports}" tooltip-placement="bottom-left" aria-label="${Show all the reports}" ng-click="showLandingPage()"></span>
+        <div id="title" class="navbar-title pull-left">
+          <label class="entity-console-name">{{data.consoleData.consoleName}}</label>
+        </div>
+        <button class="btn icon-arrow-down-triangle dropdown-toggle pull-left" id="show-all-reports" ng-click="showAllReports()" uib-tooltip="${All reports}" tooltip-placement="bottom-left" aria-label="${Show or hide more lists}" aria-haspopup="true" aria-expanded="false">
+          <div class="console-reference-picker">
+            <sn-record-picker class="add-members-dd" field="data.inputFiledConsole" table="'planned_task_custom_console'" default-query="data.consoleFilter" display-field="'name'" value-field="'sys_id'" search-fields="'name'"  options="{allowClear: false}" tabindex="-1" placeholder="${Select a member}"/>
+          </div>
+        </button>
+      </div>
+      <div class="psp-overview-dd col-sm-6">
+        <div class="col-lg-2 col-lg-offset-7 col-md-3 col-md-offset-5 col-sm-6 edit-report-btn">
+          <button class="btn btn-primary edit-portal hidden-xs hidden-sm" ng-click="editPortal()" uib-tooltip="${Edit report}" tooltip-placement="bottom" ng-if="data.isOwner">${Edit}</button>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 create-entity-cntr">
+          <button class="btn btn-default add-member" ng-click="showUsers($event)" ng-class="{open : data.isSharedUsersOpen}" uib-tooltip="${Users}" tooltip-placement="bottom">${Show users}</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <div class="clearfix" id="project-status-info">
+    <div class="project-status-info-cntr" ng-if="data.ganttData.tasks && data.ganttData.tasks.length">
+      <div class="psp-overview-top-rbns-cntr clearfix">
+        <div class="ribbons-cntr clearfix col-md-3">
+        	<total-projects data="data.ganttData.summary" allProjects="true"></total-projects>
+        </div>
+        <div class="ribbons-cntr clearfix col-md-3">
+        	<projects-over-budget data="data.ganttData.summary"></projects-over-budget>
+        </div>
+        <div class="ribbons-cntr clearfix col-md-3">
+        	<projects-behind-schedule data="data.ganttData.summary"></projects-behind-schedule>
+        </div>
+        <div class="ribbons-cntr clearfix col-md-3">
+        	<projects-high-risk data="data.ganttData.summary"></projects-high-risk>
+        </div>
+      </div>
+      <div class="status-timeline-cntr panel panel-default clearfix">
+        <ul class="nav nav-tabs">
+          <li ng-class="{'active': data.showProjectStatusReport}"><a href="javascript:void(0)" ng-click="showProjectStatusReport()">${Summary}</a></li>
+          <li ng-class="{'active': data.showGantt}"><a href="javascript:void(0)" ng-click="showGanttChart()">${Timeline}</a></li>
+        </ul>
+        <div ng-show="data.showProjectStatusReport" class="clearfix">
+          <sp-widget widget="data.projectStatusReport" />
+        </div>
+        <div ng-show="data.showGantt" class="gantt-cntr clearfix">
+          <sp-widget widget="data.gantt" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="no-tasks-cntr" ng-if="!(data.ganttData.tasks && data.ganttData.tasks.length)">
+    <div class="no-tasks-text">{{::data.noTasksAvailable}}</div>
+  </div>
+</div>
+<div ng-if="!data.hasAccess">
+${Access denied}
+</div>]]></template>
+    </sp_widget>
+</record_update>

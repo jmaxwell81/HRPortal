@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>ARI-tooltip</id>
+        <sp_widget display_value="HR Portal - RTW / AR Tabbed">ede3bb7ddb06ab00561fb29a689619ac</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-12-04 15:06:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2958ba63db0a6f00e9c39334ca961921</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>ARI-tooltip</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_2958ba63db0a6f00e9c39334ca961921</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-05 10:12:45</sys_updated_on>
+        <template><![CDATA[<div class="tooltip-popover" id="tooltip-popover-{{::item.sys_id}}">
+  <ul class="color-items">
+    <li class="color-item">
+      <div class="color-label">Employee</div>
+      <div class="color-label pull-right">{{::item.employee}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Manager</div>
+      <div class="color-label pull-right">{{::item.line_manager}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Hearing Manager</div>
+      <div class="color-label pull-right">{{::item.hearing_manager}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">TU Representative</div>
+      <div class="color-label pull-right">{{::item.tu_representative}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Current Warning Level</div>
+      <div class="color-label pull-right">{{::item.review_current_warning_level}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Trigger</div>
+      <div class="color-label pull-right">{{::item.review_trigger}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Review Date</div>
+      <div class="color-label pull-right">{{::item.review_date_display}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Review Summary</div>
+      <div class="color-label pull-right">{{::item.review_summary}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Mitigating Circumstances</div>
+      <div class="color-label pull-right">{{::item.review_mitigating_circumstances}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Occupational Health Referral?</div>
+      <div class="color-label pull-right">{{::item.review_occupational_health_referral}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Occupational Health Referral Reason</div>
+      <div class="color-label pull-right">{{::item.review_occupational_health_referral_reason}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Issued Warning Level</div>
+      <div class="color-label pull-right">{{::item.review_issued_warning_level}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Issued Warning Level Reason</div>
+      <div class="color-label pull-right">{{::item.review_issued_warning_level_reason}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Right Of Appeal Offered?</div>
+      <div class="color-label pull-right">{{::item.review_right_of_appeal_offered}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Last Updated On</div>
+      <div class="color-label pull-right">{{::item.updated_on}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Last Updated By</div>
+      <div class="color-label pull-right" style="padding-top:1px;">{{::item.updated_by}}</div>
+    </li>     
+  </ul>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

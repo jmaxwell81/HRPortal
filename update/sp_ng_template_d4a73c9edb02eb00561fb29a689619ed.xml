@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>absence-reportsList</id>
+        <sp_widget display_value="HR Portal - Absence Overview SAVED">bd237cdadb02eb00561fb29a68961967</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-30 08:31:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d4a73c9edb02eb00561fb29a689619ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>absence-reportsList</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_d4a73c9edb02eb00561fb29a689619ed</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 08:31:30</sys_updated_on>
+        <template><![CDATA[<div class="more-reports-cntr">
+  <legend>${Status Reports}</legend>
+  <div class="row" style="padding-bottom:5px;">
+    <p class="icon-loading" ng-if="isReportsLoading"></p>
+    <input id="entityselector" class="navbar-btn nav-margin-right control select2 pull-left" name="entityselector" type="hidden" />
+  </div>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

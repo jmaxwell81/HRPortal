@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="territory_user" name="territory_user">4616cf7d37311000deeabfc8bcbe5d0b</contains>
+        <role display_value="x_baes2_hr_portal_basic" name="x_baes2_hr_portal_basic">5e8e91b8db7da300e9c39334ca961950</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:14:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>528e91b8db7da300e9c39334ca96195f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>territory_user.x_baes2_hr_portal_basic</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_user_role_contains_528e91b8db7da300e9c39334ca96195f</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:14:30</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

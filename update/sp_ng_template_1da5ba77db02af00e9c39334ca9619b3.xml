@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>RTWU-tooltip</id>
+        <sp_widget display_value="HR Portal - RTW / AR Tabbed">ede3bb7ddb06ab00561fb29a689619ac</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-12-05 09:32:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1da5ba77db02af00e9c39334ca9619b3</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>RTWU-tooltip</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_1da5ba77db02af00e9c39334ca9619b3</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-05 10:12:30</sys_updated_on>
+        <template><![CDATA[<div class="tooltip-popover" id="tooltip-popover-{{::item.sys_id}}">
+  <ul class="color-items">
+    <li class="color-item">
+      <div class="color-label">Employee</div>
+      <div class="color-label pull-right">{{::item.employee}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Manager</div>
+      <div class="color-label pull-right">{{::item.line_manager}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Start</div>
+      <div class="color-label pull-right">{{::item.absence_start}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence End</div>
+      <div class="color-label pull-right">{{::item.absence_end}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Expected Return</div>
+      <div class="color-label pull-right">{{::item.absence_expected_return}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Absence Reason Type</div>
+      <div class="color-label pull-right">{{::item.absence_reason_type}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Reason</div>
+      <div class="color-label pull-right">{{::item.absence_reason}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Last Updated On</div>
+      <div class="color-label pull-right">{{::item.updated_on}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Last Updated By</div>
+      <div class="color-label pull-right" style="padding-top:1px;">{{::item.updated_by}}</div>
+    </li>    
+  </ul>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

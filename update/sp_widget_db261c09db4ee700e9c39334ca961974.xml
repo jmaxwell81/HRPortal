@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope) {
+	/* widget controller */
+	var c = this;	
+	
+	c.showTooltip = function(headingID, id) {
+		// Hide Any Open Tooltips
+		jQuery(".tooltip").tooltip("hide");
+
+		// Tooltip
+		$scope.server.get({
+			action: "getTooltip",
+			itemID: id
+		}).then(function(response) {
+			var tt_target = '#' + headingID + id;
+			jQuery(tt_target).attr('data-title', response.data.tooltip);
+			jQuery(tt_target).tooltip('show');
+		});
+
+	};
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>tooltip tip {&#13;
+  text-align: left!important;&#13;
+  width: auto!important;&#13;
+  max-width: auto!important;&#13;
+  min-width: 400px!important;  &#13;
+}&#13;
+&#13;
+.tip-header {&#13;
+  border-bottom: 1px solid #ccc!important;&#13;
+  background-color: #f5f5f5!important;  &#13;
+  color: #428bca!important;  &#13;
+  margin-top: -8px!important;  &#13;
+  margin-left: -16px!important;&#13;
+  margin-right: -16px!important;&#13;
+  padding-top: 8px!important;&#13;
+  padding-left: 16px!important;&#13;
+  padding-bottom: 8px!important;&#13;
+  margin-bottom: 5px!important;   &#13;
+}&#13;
+&#13;
+tooltip tip IMG {&#13;
+  max-width: 400px!important;   &#13;
+}&#13;
+&#13;
+tooltip._top tip {&#13;
+  transform: none!important;&#13;
+  left: 15px!important;&#13;
+  color: #717171!important;&#13;
+  background-color: #f5f5f5!important;&#13;
+  border: 1px solid #ccc!important;&#13;
+  -moz-box-shadow: 0px 5px 5px 0px rgba(221,221,221,1) !important;&#13;
+  box-shadow: 0px 5px 5px 0px rgba(221,221,221,1) !important;&#13;
+}&#13;
+&#13;
+tooltip._top tip tip-arrow {&#13;
+  display: none!important;&#13;
+}&#13;
+&#13;
+.tip-row {&#13;
+  padding-bottom: 10px!important;  &#13;
+}&#13;
+&#13;
+.tip-col {&#13;
+  vertical-align: top!important;  &#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,color</field_list>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>HR Portal - RTW Updates</name>
+        <option_schema>[{"name":"max_number","label":"Max number","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	data.tooltip = "";
+	
+	if (input) {
+		
+		// Client Request For Tooltip
+		if (input && input.action === "getTooltip") {
+			var gr = new GlideRecord("x_baes2_hr_portal_rtw_request");
+			if (gr.get(input.itemID)) {				
+				display_field = gr.getDisplayValue("short_description");		
+				article_type = gr.getDisplayValue('article_type');
+				absence_start = gr.getDisplayValue("absence_start");
+				absence_end = gr.getDisplayValue("absence_end");
+				absence_expected_return = gr.getDisplayValue("absence_expected_return");
+				absence_reason_type = gr.getDisplayValue("absence_reason_type");
+				absence_reason = gr.getDisplayValue("absence_reason");				
+				data.tooltip = '<div class="tip-header">' + display_field + '</br><medium class="text-muted"><span class="glyphicon glyphicon-time " />&nbsp; Absence: ' + absence_start + '</medium>' +  '</div><table><tbody>';						
+				data.tooltip += "</tbody></table>";				
+			}
+			return;
+		}		
+		
+	}  
+	else {  
+		// Initial load
+		var t = data;
+		var z = new GlideRecord('x_baes2_hr_portal_rtw_request');
+		z.addQuery('state', 'IN', '1,2,-5');
+		z.addNotNullQuery('absence_start');
+		z.addNullQuery('absence_end');			
+		z.addEncodedQuery('line_manager=javascript:gs.getUserID()');		
+		z.orderByDesc('number');
+		z.setLimit(options.max_number || 5);
+		z.query();
+		t.rowCount = z.getRowCount();
+		t.articles = [];
+
+		while (z.next()) {
+		  var a = {};
+		  a.employee = z.getDisplayValue('employee');
+		  a.line_manager = z.getDisplayValue('line_manager');
+		  a.number = z.getDisplayValue('number');				
+		  a.short_description = z.getValue('short_description');
+		  a.absence_start = z.getDisplayValue('absence_start');
+		  a.absence_end = z.getDisplayValue('absence_end');			
+		  a.absence_expected_return = z.getDisplayValue("absence_expected_return");		
+		  a.absence_reason_type = z.getDisplayValue('absence_reason_type');
+		  a.absence_reason = z.getDisplayValue('absence_reason');			
+		  a.updated_by = z.getDisplayValue("sys_updated_by");
+		  a.sys_id = z.getValue('sys_id');			
+		  t.articles.push(a);
+		}
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-26 08:52:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>db261c09db4ee700e9c39334ca961974</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>HR Portal - RTW Updates</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_widget_db261c09db4ee700e9c39334ca961974</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-26 09:25:00</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-{{::options.color}} b">
+  <div class="panel-heading">
+    <h4 class="panel-title">{{options.title}}</h4>
+  </div>
+
+  <div class="panel-body">
+    <div ng-repeat="a in data.articles" style="margin-bottom: 1em;">
+      <div style="float:left;">
+        <!-- V1 Tooltip -->
+        <span class="fa fa-info-circle" style="cursor:default;" id="HRID{{a.sys_id}}" data-container="#the-basics" data-placement="right" data-html="true" data-title="<div>loading ..</div>" ng-mouseover=c.showTooltip('HRID',a.sys_id)>&nbsp;</span>
+      </div>
+      <div>
+        <a href="?id=sc_cat_item&sys_id=6628adb2db75e300e9c39334ca96190b&sysparm_rtw={{::a.sys_id}}" title="Click to view Return To Work">
+          {{::a.employee}}
+        </a>
+      </div>      
+      <div>
+        <span title="{{::a.published_display}}">
+          <glyph sn-char="calendar" />
+          Absence: {{::a.absence_start}}         
+        </span>
+      </div>
+    </div>
+  </div>              
+</div>]]></template>
+    </sp_widget>
+</record_update>

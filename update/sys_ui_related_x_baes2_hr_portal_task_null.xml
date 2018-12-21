@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_related sys_domain="global" table="x_baes2_hr_portal_task" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>task_sla.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>94ce99b8db7da300e9c39334ca9619c6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>task_ci.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>90ce99b8db7da300e9c39334ca9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>sm_part_requirement.service_order_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>54ce99b8db7da300e9c39334ca9619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>alm_transfer_order.service_order_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>d0ce99b8db7da300e9c39334ca9619c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>sm_asset_usage.service_order_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>1cce99b8db7da300e9c39334ca9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>5</position>
+            <related_list>sm_m2m_task_dependency.downstream_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>18ce99b8db7da300e9c39334ca9619c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>6</position>
+            <related_list>sm_m2m_task_dependency.upstream_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>50ce99b8db7da300e9c39334ca9619c6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>7</position>
+            <related_list>sm_incidentals.parent_task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>5cce99b8db7da300e9c39334ca9619c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>8</position>
+            <related_list>sm_m2m_task_contract.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>d8ce99b8db7da300e9c39334ca9619c6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>9</position>
+            <related_list>REL:e8675c6947232100158b949b6c9a71db</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>d4ce99b8db7da300e9c39334ca9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="HR Portal Task - Default view" name="x_baes2_hr_portal_task" related_list="NULL" sys_domain="global" view="Default view">5cce99b8db7da300e9c39334ca9619c3</list_id>
+            <order_by/>
+            <position>10</position>
+            <related_list>task_activity.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_id>10ce99b8db7da300e9c39334ca9619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>HR Portal Task - Default view</calculated_name>
+            <filter/>
+            <name>x_baes2_hr_portal_task</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:28</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>5cce99b8db7da300e9c39334ca9619c3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>HR Portal Task - Default view</sys_name>
+            <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+            <sys_update_name>sys_ui_related_x_baes2_hr_portal_task_null</sys_update_name>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:28</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

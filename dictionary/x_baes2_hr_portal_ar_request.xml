@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label="HR Portal AR Request" max_length="40" name="x_baes2_hr_portal_ar_request" sizeclass="4" type="collection">
+        <element label="Employee" max_length="32" name="employee" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Hearing Manager" max_length="32" name="hearing_manager" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Line Manager" max_length="32" name="line_manager" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Review Current Warning Level" max_length="32" name="review_current_warning_level" reference="x_baes2_hr_portal_warning_level" type="reference"/>
+        <element label="Review Date" max_length="40" name="review_date" type="glide_date"/>
+        <element label="Review Issued Warning Level" max_length="32" name="review_issued_warning_level" reference="x_baes2_hr_portal_warning_level" type="reference"/>
+        <element label="Review Issued Warning Level Reason" max_length="2048" name="review_issued_warning_level_reason" type="string_full_utf8"/>
+        <element label="Review Mitigating Circumstances" max_length="2048" name="review_mitigating_circumstances" type="string_full_utf8"/>
+        <element choice="1" label="Review Occupational Health Referral" max_length="40" name="review_occupational_health_referral" type="choice">
+            <choice>
+                <element label="No" value="0"/>
+                <element label="Yes" value="1"/>
+            </choice>
+        </element>
+        <element label="Review Occupational Health Referral Reason" max_length="2048" name="review_occupational_health_referral_reason" type="string_full_utf8"/>
+        <element choice="1" label="Review Right Of Appeal Offered" max_length="40" name="review_right_of_appeal_offered" type="choice">
+            <choice>
+                <element label="No" value="0"/>
+                <element label="Yes" value="1"/>
+            </choice>
+        </element>
+        <element label="Review Summary" max_length="2048" name="review_summary" type="string_full_utf8"/>
+        <element choice="1" label="Review Trigger" max_length="40" name="review_trigger" type="choice">
+            <choice>
+                <element label="Total Days" value="0"/>
+                <element label="Total Periods" value="1"/>
+            </choice>
+        </element>
+        <element label="TU Representative" max_length="1024" name="tu_representative" type="string_full_utf8"/>
+    </element>
+</database>

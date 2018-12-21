@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>asmt_assessment_instance_question</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="asmt_assessment_instance_question">category=eb8f515ddb0a2b00e9c39334ca9619c0^metric=a5ae16d1dbca2b00e9c39334ca9619c4^EQ<item display_table="asmt_metric_category" display_value="HR Existence Audit" endquery="false" field="category" goto="false" newquery="false" operator="=" or="false" value="eb8f515ddb0a2b00e9c39334ca9619c0"/>
+            <item display_table="asmt_metric" display_value="Employee List" endquery="false" field="metric" goto="false" newquery="false" operator="=" or="false" value="a5ae16d1dbca2b00e9c39334ca9619c4"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>HR Existence - Employee List Creation</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Always Update User List - From Headcount Import
+	var users = '';
+	var hcRecord = new GlideRecord('x_baes2_hr_portal_headcount');
+	hcRecord.addQuery('line_manager',current.instance.user);        
+	hcRecord.query();
+	while (hcRecord.next()) {
+		users = users + hcRecord.employee.name + ' (' + hcRecord.employee.email + ')' + '\n';
+	}
+	//gs.info('HR Existence - Employee List Creation: MANAGER=' + current.instance.user + '    EMPLOYEES=' + users);
+	//current.string_value = 'TESTING';	
+	current.string_value = users;
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-27 13:36:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>ce80a615dbca2b00e9c39334ca9619b3</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>HR Existence - Employee List Creation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_script_ce80a615dbca2b00e9c39334ca9619b3</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-27 14:29:31</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+</record_update>

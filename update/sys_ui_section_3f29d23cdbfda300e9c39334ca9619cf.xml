@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="3f29d23cdbfda300e9c39334ca9619cf" sys_domain="global" table="x_baes2_hr_portal_rtw_request" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>employee</element>
+            <position>0</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>f4b932bcdb31e300e9c39334ca96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>line_manager</element>
+            <position>1</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>78b932bcdb31e300e9c39334ca96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_start</element>
+            <position>2</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>f8b932bcdb31e300e9c39334ca96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_end</element>
+            <position>3</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>7cb932bcdb31e300e9c39334ca96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_expected_return</element>
+            <position>4</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>fcb932bcdb31e300e9c39334ca96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_reason</element>
+            <position>5</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>70b932bcdb31e300e9c39334ca96195c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_doctors_visit</element>
+            <position>6</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>f0b932bcdb31e300e9c39334ca96195c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_doctors_visit_medication</element>
+            <position>7</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>74b932bcdb31e300e9c39334ca96195c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>form_completed</element>
+            <position>8</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 15:52:49</sys_created_on>
+            <sys_id>f4b932bcdb31e300e9c39334ca96195c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 15:52:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_reason_type</element>
+            <position>9</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 16:39:02</sys_created_on>
+            <sys_id>b5440f34db71e300e9c39334ca9619bb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 16:39:02</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_employee_actions</element>
+            <position>10</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:23:55</sys_created_on>
+            <sys_id>314a22cddb39e300e9c39334ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:23:55</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_accident_at_work</element>
+            <position>11</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:28:03</sys_created_on>
+            <sys_id>663b6acddb39e300e9c39334ca9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:28:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_accident_reported_correctly</element>
+            <position>12</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:34:41</sys_created_on>
+            <sys_id>27bcee01db79e300e9c39334ca961907</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:34:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_employee_job_impact</element>
+            <position>13</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:40:50</sys_created_on>
+            <sys_id>fd2eee01db79e300e9c39334ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:40:50</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_employee_bae_support</element>
+            <position>14</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:42:42</sys_created_on>
+            <sys_id>099e6281db79e300e9c39334ca9619ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:42:42</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_occupational_health_referral</element>
+            <position>15</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:47:31</sys_created_on>
+            <sys_id>67afae41db79e300e9c39334ca9619f2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:47:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>absence_bae_procedures_followed</element>
+            <position>16</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:50:50</sys_created_on>
+            <sys_id>5c70f2c1db79e300e9c39334ca961916</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:50:50</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>line_manager_review_instructions</element>
+            <position>17</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 13:28:36</sys_created_on>
+            <sys_id>86422f8ddbb9e300e9c39334ca96197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 13:28:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>review_instructions</element>
+            <position>18</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 13:45:37</sys_created_on>
+            <sys_id>db262b81dbf9e300e9c39334ca961919</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_baes2_hr_portal_rtw_request" sys_domain="global" view="Default view">3f29d23cdbfda300e9c39334ca9619cf</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 13:45:37</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_baes2_hr_portal_rtw_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 13:30:45</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>3f29d23cdbfda300e9c39334ca9619cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_baes2_hr_portal_rtw_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+            <sys_update_name>sys_ui_section_3f29d23cdbfda300e9c39334ca9619cf</sys_update_name>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 13:30:45</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

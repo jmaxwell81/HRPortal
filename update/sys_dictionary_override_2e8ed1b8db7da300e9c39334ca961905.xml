@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_dictionary_override">
+    <sys_dictionary_override action="INSERT_OR_UPDATE">
+        <attributes>base_table=x_baes2_hr_portal_task</attributes>
+        <attributes_override>true</attributes_override>
+        <base_table>sf_state_flow</base_table>
+        <calculation/>
+        <calculation_override>false</calculation_override>
+        <default_value>x_baes2_hr_portal_task</default_value>
+        <default_value_override>true</default_value_override>
+        <dependent/>
+        <dependent_override>false</dependent_override>
+        <display_override>false</display_override>
+        <element>table</element>
+        <mandatory>false</mandatory>
+        <mandatory_override>false</mandatory_override>
+        <name>x_baes2_hr_portal_sf_task</name>
+        <read_only>false</read_only>
+        <read_only_override>false</read_only_override>
+        <reference_qual/>
+        <reference_qual_override>false</reference_qual_override>
+        <sys_class_name>sys_dictionary_override</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:14:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2e8ed1b8db7da300e9c39334ca961905</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>table</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_dictionary_override_2e8ed1b8db7da300e9c39334ca961905</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:14:32</sys_updated_on>
+    </sys_dictionary_override>
+</record_update>

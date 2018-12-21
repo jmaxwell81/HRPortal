@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="sn_bae_hr_headcount_import" max_length="40" name="x_baes2_hr_portal_sn_bae_hr_headcount_import" sizeclass="8804" type="collection">
+        <element attributes="import_attribute_name=Assignment End Date" label="Assignment End Date" max_length="40" name="u_assignment_end_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Assignment Start Date" label="Assignment Start Date" max_length="40" name="u_assignment_start_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Assignment Type,edge_encryption_enabled=true" label="Assignment Type" max_length="40" name="u_assignment_type" type="string"/>
+        <element attributes="import_attribute_name=Company Start date" label="Company Start date" max_length="40" name="u_company_start_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Continuous Service Start date" label="Continuous Service Start date" max_length="40" name="u_continuous_s_ice_start_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Contract End Date" label="Contract End Date" max_length="40" name="u_contract_end_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Contract Type,edge_encryption_enabled=true" label="Contract Type" max_length="40" name="u_contract_type" type="string"/>
+        <element attributes="import_attribute_name=Days Worked" label="Days Worked" max_length="40" name="u_days_worked" type="integer"/>
+        <element attributes="import_attribute_name=Early Careers Entry Scheme,edge_encryption_enabled=true" label="Early Careers Entry Scheme" max_length="40" name="u_early_careers_entry_scheme" type="string"/>
+        <element attributes="import_attribute_name=Early Careers Programme,edge_encryption_enabled=true" label="Early Careers Programme" max_length="40" name="u_early_careers_programme" type="string"/>
+        <element attributes="import_attribute_name=Early Careers Programme Specific,edge_encryption_enabled=true" label="Early Careers Programme Specific" max_length="40" name="u_early_career_ramme_specific" type="string"/>
+        <element attributes="import_attribute_name=Email Address,edge_encryption_enabled=true" label="Email Address" max_length="40" name="u_email_address" type="string"/>
+        <element attributes="import_attribute_name=Employee Number,edge_encryption_enabled=true" label="Employee Number" max_length="40" name="u_employee_number" type="string"/>
+        <element attributes="import_attribute_name=Employee Status,edge_encryption_enabled=true" label="Employee Status" max_length="40" name="u_employee_status" type="string"/>
+        <element attributes="import_attribute_name=Employee Type,edge_encryption_enabled=true" label="Employee Type" max_length="40" name="u_employee_type" type="string"/>
+        <element attributes="import_attribute_name=Employment End Date" label="Employment End Date" max_length="40" name="u_employment_end_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Entry Route,edge_encryption_enabled=true" label="Entry Route" max_length="40" name="u_entry_route" type="string"/>
+        <element attributes="import_attribute_name=First Name,edge_encryption_enabled=true" label="First Name" max_length="40" name="u_first_name" type="string"/>
+        <element attributes="import_attribute_name=FTE" label="FTE" max_length="15" name="u_fte" type="decimal"/>
+        <element attributes="import_attribute_name=Full Name,edge_encryption_enabled=true" label="Full Name" max_length="41" name="u_full_name" type="string"/>
+        <element attributes="import_attribute_name=Full Time / Part Time,edge_encryption_enabled=true" label="Full Time / Part Time" max_length="40" name="u_full_time___part_time" type="string"/>
+        <element attributes="import_attribute_name=Function,edge_encryption_enabled=true" label="Function" max_length="40" name="u_function" type="string"/>
+        <element attributes="import_attribute_name=Functional Category,edge_encryption_enabled=true" label="Functional Category" max_length="40" name="u_functional_category" type="string"/>
+        <element attributes="import_attribute_name=Future Leaver Marker,edge_encryption_enabled=true" label="Future Leaver Marker" max_length="40" name="u_future_leaver_marker" type="string"/>
+        <element attributes="import_attribute_name=GCI,edge_encryption_enabled=true" label="GCI" max_length="40" name="u_gci" type="string"/>
+        <element attributes="import_attribute_name=Home Business Group,edge_encryption_enabled=true" label="Home Business Group" max_length="40" name="u_home_business_group" type="string"/>
+        <element attributes="import_attribute_name=Home Business Level 1,edge_encryption_enabled=true" label="Home Business Level 1" max_length="40" name="u_home_business_level_1" type="string"/>
+        <element attributes="import_attribute_name=Home Business Level 2,edge_encryption_enabled=true" label="Home Business Level 2" max_length="40" name="u_home_business_level_2" type="string"/>
+        <element attributes="import_attribute_name=Home Business Level 3,edge_encryption_enabled=true" label="Home Business Level 3" max_length="40" name="u_home_business_level_3" type="string"/>
+        <element attributes="import_attribute_name=Home Contractual Working Hours" label="Home Contractual Working Hours" max_length="15" name="u_home_contrac__working_hours" type="decimal"/>
+        <element attributes="import_attribute_name=Home Cost Centre,edge_encryption_enabled=true" label="Home Cost Centre" max_length="40" name="u_home_cost_centre" type="string"/>
+        <element attributes="import_attribute_name=Home Country of Work,edge_encryption_enabled=true" label="Home Country of Work" max_length="40" name="u_home_country_of_work" type="string"/>
+        <element attributes="import_attribute_name=Home Grade,edge_encryption_enabled=true" label="Home Grade" max_length="40" name="u_home_grade" type="string"/>
+        <element attributes="import_attribute_name=Home Job Title,edge_encryption_enabled=true" label="Home Job Title" max_length="77" name="u_home_job_title" type="string"/>
+        <element attributes="import_attribute_name=Home Legal Entity,edge_encryption_enabled=true" label="Home Legal Entity" max_length="40" name="u_home_legal_entity" type="string"/>
+        <element attributes="import_attribute_name=Home Line Manager Email,edge_encryption_enabled=true" label="Home Line Manager Email" max_length="40" name="u_home_line_manager_email" type="string"/>
+        <element attributes="import_attribute_name=Home Line Manager GCI,edge_encryption_enabled=true" label="Home Line Manager GCI" max_length="40" name="u_home_line_manager_gci" type="string"/>
+        <element attributes="import_attribute_name=Home Place of Work,edge_encryption_enabled=true" label="Home Place of Work" max_length="40" name="u_home_place_of_work" type="string"/>
+        <element attributes="import_attribute_name=Home Position Title,edge_encryption_enabled=true" label="Home Position Title" max_length="64" name="u_home_position_title" type="string"/>
+        <element attributes="import_attribute_name=Home Standard Working Hours" label="Home Standard Working Hours" max_length="15" name="u_home_standard_working_hours" type="decimal"/>
+        <element attributes="import_attribute_name=Home System ID,edge_encryption_enabled=true" label="Home System ID" max_length="40" name="u_home_system_id" type="string"/>
+        <element attributes="import_attribute_name=Home Team,edge_encryption_enabled=true" label="Home Team" max_length="40" name="u_home_team" type="string"/>
+        <element attributes="import_attribute_name=Home Team ID,edge_encryption_enabled=true" label="Home Team ID" max_length="40" name="u_home_team_id" type="string"/>
+        <element attributes="import_attribute_name=Host Business Group,edge_encryption_enabled=true" label="Host Business Group" max_length="40" name="u_host_business_group" type="string"/>
+        <element attributes="import_attribute_name=Host Business Level 1,edge_encryption_enabled=true" label="Host Business Level 1" max_length="40" name="u_host_business_level_1" type="string"/>
+        <element attributes="import_attribute_name=Host Business Level 2,edge_encryption_enabled=true" label="Host Business Level 2" max_length="40" name="u_host_business_level_2" type="string"/>
+        <element attributes="import_attribute_name=Host Business Level 3,edge_encryption_enabled=true" label="Host Business Level 3" max_length="40" name="u_host_business_level_3" type="string"/>
+        <element attributes="import_attribute_name=Host Contractual Working Hours" label="Host Contractual Working Hours " max_length="40" name="u_host_contrac__working_hours" type="integer"/>
+        <element attributes="import_attribute_name=Host Cost Centre,edge_encryption_enabled=true" label="Host Cost Centre" max_length="40" name="u_host_cost_centre" type="string"/>
+        <element attributes="import_attribute_name=Host Country of Work,edge_encryption_enabled=true" label="Host Country of Work" max_length="40" name="u_host_country_of_work" type="string"/>
+        <element attributes="import_attribute_name=Host Function,edge_encryption_enabled=true" label="Host Function" max_length="40" name="u_host_function" type="string"/>
+        <element attributes="import_attribute_name=Host Grade,edge_encryption_enabled=true" label="Host Grade" max_length="40" name="u_host_grade" type="string"/>
+        <element attributes="import_attribute_name=Host Job Title,edge_encryption_enabled=true" label="Host Job Title" max_length="61" name="u_host_job_title" type="string"/>
+        <element attributes="import_attribute_name=Host Legal Entity,edge_encryption_enabled=true" label="Host Legal Entity" max_length="40" name="u_host_legal_entity" type="string"/>
+        <element attributes="import_attribute_name=Host Line Manager Email,edge_encryption_enabled=true" label="Host Line Manager Email" max_length="40" name="u_host_line_manager_email" type="string"/>
+        <element attributes="import_attribute_name=Host Line Manager GCI,edge_encryption_enabled=true" label="Host Line Manager GCI" max_length="40" name="u_host_line_manager_gci" type="string"/>
+        <element attributes="import_attribute_name=Host Place of Work,edge_encryption_enabled=true" label="Host Place of Work" max_length="40" name="u_host_place_of_work" type="string"/>
+        <element attributes="import_attribute_name=Host Position Title,edge_encryption_enabled=true" label="Host Position Title" max_length="47" name="u_host_position_title" type="string"/>
+        <element attributes="import_attribute_name=Host Standard Working Hours" label="Host Standard Working Hours" max_length="40" name="u_host_standard_working_hours" type="integer"/>
+        <element attributes="import_attribute_name=Host System ID,edge_encryption_enabled=true" label="Host System ID" max_length="40" name="u_host_system_id" type="string"/>
+        <element attributes="import_attribute_name=Host Team,edge_encryption_enabled=true" label="Host Team" max_length="40" name="u_host_team" type="string"/>
+        <element attributes="import_attribute_name=Host Team ID,edge_encryption_enabled=true" label="Host Team ID" max_length="40" name="u_host_team_id" type="string"/>
+        <element attributes="import_attribute_name=Is Direct Employee,edge_encryption_enabled=true" label="Is Direct Employee" max_length="40" name="u_is_direct_employee" type="string"/>
+        <element attributes="import_attribute_name=Last Name,edge_encryption_enabled=true" label="Last Name" max_length="40" name="u_last_name" type="string"/>
+        <element attributes="import_attribute_name=Length of Service (years)" label="Length of Service (years)" max_length="40" name="u_length_of_service__years_" type="integer"/>
+        <element attributes="import_attribute_name=Pay Group (ID),edge_encryption_enabled=true" label="Pay Group (ID)" max_length="40" name="u_pay_group__id_" type="string"/>
+        <element attributes="import_attribute_name=Preferred name,edge_encryption_enabled=true" label="Preferred name" max_length="40" name="u_preferred_name" type="string"/>
+        <element attributes="import_attribute_name=Resource Tag,edge_encryption_enabled=true" label="Resource Tag" max_length="56" name="u_resource_tag" type="string"/>
+        <element attributes="import_attribute_name=User ID,edge_encryption_enabled=true" label="User ID" max_length="40" name="u_user_id" type="string"/>
+        <element attributes="import_attribute_name=Worker Class,edge_encryption_enabled=true" label="Worker Class" max_length="40" name="u_worker_class" type="string"/>
+        <element attributes="import_attribute_name=Work Phone,edge_encryption_enabled=true" label="Work Phone" max_length="40" name="u_work_phone" type="string"/>
+    </element>
+</database>

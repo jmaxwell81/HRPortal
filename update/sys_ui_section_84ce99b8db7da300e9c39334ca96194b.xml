@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="Automatic" section_id="84ce99b8db7da300e9c39334ca96194b" sys_domain="global" table="x_baes2_hr_portal_sf_task" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>automatic_string</element>
+            <position>0</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>8cce99b8db7da300e9c39334ca96194b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>automatic_condition</element>
+            <position>1</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>00ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>automatic_script</element>
+            <position>2</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>80ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>3</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>04ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>business_rule</element>
+            <position>4</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>84ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>08ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>automatic_roles</element>
+            <position>6</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>88ce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>7</position>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_id>0cce99b8db7da300e9c39334ca96194c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Automatic" display_value="Automatic" name="x_baes2_hr_portal_sf_task" sys_domain="global" view="Default view">84ce99b8db7da300e9c39334ca96194b</sys_ui_section>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Automatic</caption>
+            <header>false</header>
+            <name>x_baes2_hr_portal_sf_task</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-13 09:15:27</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>84ce99b8db7da300e9c39334ca96194b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Automatic</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+            <sys_update_name>sys_ui_section_84ce99b8db7da300e9c39334ca96194b</sys_update_name>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-13 09:15:27</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

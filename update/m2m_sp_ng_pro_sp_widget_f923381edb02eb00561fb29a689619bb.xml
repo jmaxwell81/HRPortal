@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="projectsOverBudget">6a4b533d0bc03200b7d0c32c15673a0d</sp_angular_provider>
+        <sp_widget display_value="HR Portal - Absence Overview SAVED">bd237cdadb02eb00561fb29a68961967</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-30 08:11:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f923381edb02eb00561fb29a689619bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>projectsOverBudget.Copy of Project status portal overview</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_f923381edb02eb00561fb29a689619bb</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 08:11:32</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>

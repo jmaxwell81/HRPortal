@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>IMT_sphr_table_link</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[// Service Portal link
+var portal_id = 'sphr';
+var table_id = 'form';
+var link_id = current.number;
+var cat_id = '';
+var parm_id = '';
+
+// Return To Work (RTW)
+if (current.getTableName() == 'x_baes2_hr_portal_rtw_request') {
+	portal_id = 'sphr';	
+	table_id = 'sc_cat_item';
+	parm_id = 'sysparm_rtw';	
+	if ((current.state == '1') || (current.state == '2') || (current.state == '-5')) {
+		// RTW Update - LM
+		cat_id = '6628adb2db75e300e9c39334ca96190b';
+	} else {
+		// RTW Interview - LM + Employee
+		cat_id = '52040670dbfda300e9c39334ca9619d5';		
+	}	
+}
+
+// Absence Review (AR)
+if (current.getTableName() == 'x_baes2_hr_portal_ar_request') {
+	portal_id = 'sphr';	
+	table_id = 'sc_cat_item';
+	parm_id = 'sysparm_ar';	
+	// AR Review - HM + TU + Employee
+	cat_id = '35175cb7db356700561fb29a68961922';			
+}
+
+var tableLink = '<a href="' + gs.getProperty('glide.servlet.uri') + portal_id + '?id=' + table_id + '&sys_id=' + cat_id + '&' + parm_id + '=' + current.sys_id + '">' + link_id + '</a>';
+template.print(tableLink);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-20 13:18:09</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>23695207db312700e9c39334ca96199c</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>IMT_sphr_table_link</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_script_email_23695207db312700e9c39334ca96199c</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-22 14:30:33</sys_updated_on>
+    </sys_script_email>
+</record_update>

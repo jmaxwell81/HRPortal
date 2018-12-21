@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="u_employee_number" label="Employee Number" language="en" table="x_baes2_hr_portal_headcount">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_employee_number</element>
+            <help/>
+            <hint/>
+            <label>Employee Number</label>
+            <language>en</language>
+            <name>x_baes2_hr_portal_headcount</name>
+            <plural>Employee Numbers</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-26 10:43:31</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>cd9f2c89db8ee700e9c39334ca96194b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Employee Number</sys_name>
+            <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+            <sys_update_name>sys_documentation_x_baes2_hr_portal_headcount_u_employee_number_en</sys_update_name>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-26 10:43:31</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

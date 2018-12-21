@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sm_config">
+    <sm_config action="INSERT_OR_UPDATE">
+        <accept_reject>false</accept_reject>
+        <active>true</active>
+        <admin_role display_value="x_baes2_hr_portal_admin" name="x_baes2_hr_portal_admin">da8e91b8db7da300e9c39334ca96194d</admin_role>
+        <agent_role display_value="x_baes2_hr_portal_agent" name="x_baes2_hr_portal_agent">5a8e91b8db7da300e9c39334ca961945</agent_role>
+        <app_name>hr_portal</app_name>
+        <approval>true</approval>
+        <approval_workflow display_value="Approval Workflow for SM">da95b573d7322100bbc783e80e610360</approval_workflow>
+        <approver_role display_value="x_baes2_hr_portal_approver_user" name="x_baes2_hr_portal_approver_user">5a8e91b8db7da300e9c39334ca961948</approver_role>
+        <associated_task_tables/>
+        <auto_dispatch>true</auto_dispatch>
+        <basic_role display_value="x_baes2_hr_portal_basic" name="x_baes2_hr_portal_basic">5e8e91b8db7da300e9c39334ca961950</basic_role>
+        <catalog display_value="HR Portal Catalog">bebe59b8db7da300e9c39334ca9619cc</catalog>
+        <created_with_version>Jakarta: 08-09-2018_1226</created_with_version>
+        <disabled_processes/>
+        <dispatch_group_type display_value="hr_portal_dispatch">889e15b8db7da300e9c39334ca96195f</dispatch_group_type>
+        <dispatch_queue>false</dispatch_queue>
+        <dispatcher_role display_value="x_baes2_hr_portal_dispatcher" name="x_baes2_hr_portal_dispatcher">1e8e91b8db7da300e9c39334ca961953</dispatcher_role>
+        <follow_the_sun_priority>{value:,type:,display:}</follow_the_sun_priority>
+        <geolocation_maps>false</geolocation_maps>
+        <inbound_email>false</inbound_email>
+        <initiator_role display_value="x_baes2_hr_portal_initiator" name="x_baes2_hr_portal_initiator">928e91b8db7da300e9c39334ca96194b</initiator_role>
+        <kbase display_value="HR Portal Knowledge">3ebe59b8db7da300e9c39334ca9619dc</kbase>
+        <knowledge_base>true</knowledge_base>
+        <limit_by_location>true</limit_by_location>
+        <main_model_category display_value="HR Portal Request Template">69bed5b8db7da300e9c39334ca9619e5</main_model_category>
+        <main_model_table>x_baes2_hr_portal_request_template</main_model_table>
+        <main_state_flow_table>x_baes2_hr_portal_sf_request</main_state_flow_table>
+        <main_table>x_baes2_hr_portal_request</main_table>
+        <managed_docs>true</managed_docs>
+        <mandatory_work_notes>false</mandatory_work_notes>
+        <name>HR Portal</name>
+        <part_requirement>false</part_requirement>
+        <pdf_order_summary>false</pdf_order_summary>
+        <property_prefix>x_baes2_hr_portal</property_prefix>
+        <qualification>false</qualification>
+        <qualification_group_type/>
+        <qualifier_role/>
+        <read_role display_value="x_baes2_hr_portal_read" name="x_baes2_hr_portal_read">1a8e91b8db7da300e9c39334ca961956</read_role>
+        <request_dispatch_method>auto</request_dispatch_method>
+        <request_dispatch_workflow display_value="Request Assignment Workflow for SM">879cca02d7100200e5eb83e80e6103fc</request_dispatch_workflow>
+        <request_driven>false</request_driven>
+        <rollup_work_notes>false</rollup_work_notes>
+        <service_catalog>true</service_catalog>
+        <signature_capture>false</signature_capture>
+        <surveys/>
+        <sys_class_name>sm_config</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:15:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b8ced9b8db7da300e9c39334ca961910</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Portal</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sm_config_b8ced9b8db7da300e9c39334ca961910</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:15:30</sys_updated_on>
+        <task_activities>false</task_activities>
+        <task_dispatch_method>auto</task_dispatch_method>
+        <task_dispatch_workflow display_value="Assignment Workflow for SM">e1865971d7132100bbc783e80e610365</task_dispatch_workflow>
+        <task_model_category display_value="HR Portal Task Template">29bed5b8db7da300e9c39334ca9619f2</task_model_category>
+        <task_model_table>x_baes2_hr_portal_task_template</task_model_table>
+        <task_state_flow_table>x_baes2_hr_portal_sf_task</task_state_flow_table>
+        <task_table>x_baes2_hr_portal_task</task_table>
+        <task_work_group_type/>
+        <templates_to_catalog>true</templates_to_catalog>
+        <track_travel>false</track_travel>
+        <use_consistent_assignment>false</use_consistent_assignment>
+        <use_follow_the_sun>true</use_follow_the_sun>
+        <use_location>true</use_location>
+        <use_schedule>false</use_schedule>
+        <use_sf>true</use_sf>
+        <use_skill>all</use_skill>
+        <use_timezone>true</use_timezone>
+        <user_created>true</user_created>
+        <vendor_group_type display_value="hr_portal_vendor">0c9e15b8db7da300e9c39334ca96195f</vendor_group_type>
+        <work_group_type display_value="hr_portal">809e15b8db7da300e9c39334ca96195f</work_group_type>
+    </sm_config>
+</record_update>

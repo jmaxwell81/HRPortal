@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="sn_bae_hr_headcount_transform">0ba2b84ddb8ee700e9c39334ca9619ec</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+
+// Ignore if any fields missing
+if ((source.u_gci.nil() && source.u_employee_number.nil() && source.u_email_address.nil()) || (source.u_home_line_manager_gci.nil() || source.u_home_line_manager_email.nil())) {
+	ignore = true;	
+} else {	
+	// Try to match USER GCI / EMPLOYEE NUMBER reference
+	var gr_user = new GlideRecord("sys_user");	
+	if (!source.u_email_address.nil()) {
+		gr_user.addQuery("email", source.u_email_address);
+	} else {
+		if (!source.u_gci.nil()) {
+			gr_user.addQuery("u_gci", source.u_gci);
+		} else {		
+			gr_user.addQuery("employee_number", source.u_employee_number);	
+		}
+	}
+	gr_user.query();
+	if (gr_user.next()){
+		// Try to match MANAGER GCI / EMAIL reference		
+		var gr_manager = new GlideRecord("sys_user");
+		if (!source.u_home_line_manager_email.nil()) {
+			gr_manager.addQuery("email", source.u_home_line_manager_email);
+		} else {
+			gr_manager.addQuery("u_gci", source.u_home_line_manager_gci);			
+		}
+		gr_manager.query();
+		if (gr_manager.next()){
+			target.employee = gr_user.sys_id;
+			target.line_manager = gr_manager.sys_id;			
+		} else {
+			gs.info('HR HEADCOUNT TRANSFORM ERROR - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);			
+			ignore = true;		
+		}			
+	} else {
+		gs.info('HR HEADCOUNT TRANSFORM ERROR - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);		
+		ignore = true;		
+	}	
+}
+
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-26 10:58:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e2e27c4ddb8ee700e9c39334ca96190f</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>onBefore</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_transform_script_e2e27c4ddb8ee700e9c39334ca96190f</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-27 15:40:02</sys_updated_on>
+        <when>onBefore</when>
+    </sys_transform_script>
+</record_update>

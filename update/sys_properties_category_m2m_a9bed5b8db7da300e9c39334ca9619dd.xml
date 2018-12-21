@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="HR Portal Geolocation">2dbed5b8db7da300e9c39334ca9619da</category>
+        <order>1</order>
+        <property display_value="x_baes2_hr_portal.morning.rush.hours" name="x_baes2_hr_portal.morning.rush.hours">64ae55b8db7da300e9c39334ca961990</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:15:16</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a9bed5b8db7da300e9c39334ca9619dd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_baes2_hr_portal.morning.rush.hours.HR Portal Geolocation</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_a9bed5b8db7da300e9c39334ca9619dd</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:15:16</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

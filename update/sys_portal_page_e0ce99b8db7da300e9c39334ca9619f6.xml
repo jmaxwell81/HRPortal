@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update node_type="sys_portal_page" unload_date="2018-12-21 08:33:40">
+    <sys_portal_page action="INSERT_OR_UPDATE">
+        <layout display_value="layout_2_across">f6defafa0a0a0b12000d5016bd12ff06</layout>
+        <order>850</order>
+        <read_roles>x_baes2_hr_portal_read</read_roles>
+        <roles>x_baes2_hr_portal_admin</roles>
+        <selectable>false</selectable>
+        <sys_class_name>sys_portal_page</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>e0ce99b8db7da300e9c39334ca9619f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Portal Overview</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_portal_page_e0ce99b8db7da300e9c39334ca9619f6</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+        <title>HR Portal Overview</title>
+        <user/>
+        <view>hr_portal_overview</view>
+        <related_items_node>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>1</offset>
+                <page display_value="HR Portal Overview">e0ce99b8db7da300e9c39334ca9619f6</page>
+                <summary>HR Portal Tasks</summary>
+                <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                <sys_id>24ce99b8db7da300e9c39334ca9619f8</sys_id>
+                <sys_mod_count>1</sys_mod_count>
+                <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">24ce99b8db7da300e9c39334ca9619f8</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>68ce99b8db7da300e9c39334ca9619f8</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>HR Portal Tasks</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">24ce99b8db7da300e9c39334ca9619f8</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>a0ce99b8db7da300e9c39334ca9619f9</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>60ce99b8db7da300e9c39334ca9619f2</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">24ce99b8db7da300e9c39334ca9619f8</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>ecce99b8db7da300e9c39334ca9619f8</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone999</dropzone>
+                <offset>0</offset>
+                <page display_value="HR Portal Overview">e0ce99b8db7da300e9c39334ca9619f6</page>
+                <summary>HR Portal Catalog Usage</summary>
+                <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                <sys_id>7cce99b8db7da300e9c39334ca9619fb</sys_id>
+                <sys_mod_count>1</sys_mod_count>
+                <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">7cce99b8db7da300e9c39334ca9619fb</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>38ce99b8db7da300e9c39334ca9619fc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">7cce99b8db7da300e9c39334ca9619fb</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>b0ce99b8db7da300e9c39334ca9619fc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>HR Portal Catalog Usage</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">7cce99b8db7da300e9c39334ca9619fb</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>f8ce99b8db7da300e9c39334ca9619fc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>6cce99b8db7da300e9c39334ca9619de</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>1</offset>
+                <page display_value="HR Portal Overview">e0ce99b8db7da300e9c39334ca9619f6</page>
+                <summary>HR Portal Group Usage</summary>
+                <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                <sys_id>acce99b8db7da300e9c39334ca9619f6</sys_id>
+                <sys_mod_count>1</sys_mod_count>
+                <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">acce99b8db7da300e9c39334ca9619f6</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>2cce99b8db7da300e9c39334ca9619f7</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">acce99b8db7da300e9c39334ca9619f6</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>64ce99b8db7da300e9c39334ca9619f7</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>HR Portal Group Usage</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">acce99b8db7da300e9c39334ca9619f6</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>ecce99b8db7da300e9c39334ca9619f7</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>64ce99b8db7da300e9c39334ca9619ef</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>0</offset>
+                <page display_value="HR Portal Overview">e0ce99b8db7da300e9c39334ca9619f6</page>
+                <summary>HR Portal Requests by Month</summary>
+                <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                <sys_id>b8ce99b8db7da300e9c39334ca9619fa</sys_id>
+                <sys_mod_count>1</sys_mod_count>
+                <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">b8ce99b8db7da300e9c39334ca9619fa</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>38ce99b8db7da300e9c39334ca9619fb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>64ce99b8db7da300e9c39334ca9619e4</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">b8ce99b8db7da300e9c39334ca9619fa</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>74ce99b8db7da300e9c39334ca9619fb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">b8ce99b8db7da300e9c39334ca9619fa</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>fcce99b8db7da300e9c39334ca9619fa</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>HR Portal Requests by Month</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>0</offset>
+                <page display_value="HR Portal Overview">e0ce99b8db7da300e9c39334ca9619f6</page>
+                <summary>HR Portal Requests</summary>
+                <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                <sys_id>e4ce99b8db7da300e9c39334ca9619f9</sys_id>
+                <sys_mod_count>1</sys_mod_count>
+                <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">e4ce99b8db7da300e9c39334ca9619f9</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>3cce99b8db7da300e9c39334ca9619f9</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>HR Portal Requests</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">e4ce99b8db7da300e9c39334ca9619f9</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>74ce99b8db7da300e9c39334ca9619fa</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>60ce99b8db7da300e9c39334ca9619dc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 13/11/2018 09:15:29">e4ce99b8db7da300e9c39334ca9619f9</portal_section>
+                        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+                        <sys_created_on>2018-11-13 09:15:29</sys_created_on>
+                        <sys_id>b0ce99b8db7da300e9c39334ca9619fa</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+                        <sys_updated_on>2018-11-13 09:15:29</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+        </related_items_node>
+    </sys_portal_page>
+</record_update>

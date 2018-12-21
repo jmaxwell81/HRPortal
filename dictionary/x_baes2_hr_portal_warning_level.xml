@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="HR Portal Warning Level" max_length="40" name="x_baes2_hr_portal_warning_level" type="collection">
+        <element choice="1" label="CSP Impact" max_length="40" name="csp_impact" type="choice">
+            <choice>
+                <element label="EIS affected for duration of warning No CSP Impact" value="1"/>
+                <element label="EIS affected for duration of warning. Possible removal of first 5 days or full removal of CSP" value="2"/>
+                <element label="No CSP Impact" value="0"/>
+            </choice>
+        </element>
+        <element label="Duration" max_length="2" name="duration" type="integer"/>
+        <element display="true" label="Title" max_length="100" name="title" type="string"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Action Short of Dismissal/  Dismissal" value="4"/>
+                <element label="Final Written" value="3"/>
+                <element label="Informal" value="0"/>
+                <element label="Verbal" value="1"/>
+                <element label="Written" value="2"/>
+            </choice>
+        </element>
+    </element>
+</database>

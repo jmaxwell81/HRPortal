@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="sn_bae_rtw_import" max_length="40" name="x_baes2_hr_portal_sn_bae_rtw_import" type="collection">
+        <element attributes="import_attribute_name=EMPLOYEEID,edge_encryption_enabled=true" label="EMPLOYEEID" max_length="40" name="u_employeeid" type="string"/>
+        <element attributes="import_attribute_name=GCI,edge_encryption_enabled=true" label="GCI" max_length="40" name="u_gci" type="string"/>
+        <element attributes="import_attribute_name=SORTNAME,edge_encryption_enabled=true" label="SORTNAME" max_length="40" name="u_sortname" type="string"/>
+        <element attributes="import_attribute_name=TRIGGER_DATE,edge_encryption_enabled=true" label="TRIGGER_DATE" max_length="40" name="u_trigger_date" type="string"/>
+    </element>
+</database>

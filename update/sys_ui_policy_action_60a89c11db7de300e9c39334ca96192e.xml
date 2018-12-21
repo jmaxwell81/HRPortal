@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>false</disabled>
+        <field>absence_bae_procedures_followed</field>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-14 17:26:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>60a89c11db7de300e9c39334ca96192e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>absence_bae_procedures_followed</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sys_ui_policy_action_60a89c11db7de300e9c39334ca96192e</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-14 17:26:45</sys_updated_on>
+        <table>x_baes2_hr_portal_rtw_request</table>
+        <ui_policy display_value="HR RTW - Set Read Only Fields On RTW View">5dd654dddb3de300e9c39334ca96190a</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

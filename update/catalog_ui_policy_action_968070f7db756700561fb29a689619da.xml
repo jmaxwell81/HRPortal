@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="Attendance Review Form">35175cb7db356700561fb29a68961922</catalog_item>
+        <catalog_variable>IO:421710f7db356700561fb29a689619fe</catalog_variable>
+        <disabled>false</disabled>
+        <field/>
+        <mandatory>true</mandatory>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-22 13:35:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>968070f7db756700561fb29a689619da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>review_mitigating_circumstances</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_968070f7db756700561fb29a689619da</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-22 13:35:36</sys_updated_on>
+        <table/>
+        <ui_policy display_value="AR Review - Protect Fields If Closed">d21750f7db356700561fb29a68961999</ui_policy>
+        <variable>review_mitigating_circumstances</variable>
+        <variable_set/>
+        <visible>ignore</visible>
+    </catalog_ui_policy_action>
+</record_update>

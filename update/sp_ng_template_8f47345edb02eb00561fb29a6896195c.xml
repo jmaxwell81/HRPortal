@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>absence-shared-users</id>
+        <sp_widget display_value="HR Portal - Absence Overview SAVED">bd237cdadb02eb00561fb29a68961967</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-30 08:30:10</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8f47345edb02eb00561fb29a6896195c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>absence-shared-users</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_8f47345edb02eb00561fb29a6896195c</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 08:30:10</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-top-heading">
+    <span class="panel-title">${Users}</span>
+    <span class="btn fa fa-close close" style="float:right;font-size: 18px;top: -5px;right: -2px;position: relative;" ng-click="hideSharedUsers($event)"><span class="sr-only">${Close}</span></span>
+  </div>
+  <div class="panel-heading">
+    <span class="panel-title-owner">${Owner}</span>
+  </div>
+  <div class="panel-body">
+    <div class="list-item clearfix">
+        <span class="avatar pull-left" ng-if="data.ownerInfo.imgUrl" style="background:url('{{data.ownerInfo.imgUrl}}') center center no-repeat"></span>
+        <span class="avatar initials pull-left" ng-if="!data.ownerInfo.imgUrl && data.ownerInfo.initials">{{data.ownerInfo.initials}}</span>
+        <span class="member-name">{{data.ownerInfo.text}}</span>
+    </div>
+  </div>
+  <div class="panel-heading">
+    <span class="panel-title-members">${Members}</span>
+  </div>
+  <div class="panel-body">
+    <button class="btn btn-default add-members" id="add-user" ng-if="isOwner" ng-click="addUser()">${Add Members}
+      <div class="user-reference-picker">
+        <sn-record-picker class="add-members-dd" field="inputFieldUser" table="'sys_user'" default-query="userFilter" display-field="'name'" value-field="'sys_id'" search-fields="'name'"  options="userFilterOpts" tabindex="-1" placeholder="${Select a member}"/>
+      </div>
+    </button>
+    <ul class="shared-members">
+      <li class="list-item clearfix" ng-repeat="member in data.members | orderBy:'text' track by member.id">
+        <span class="avatar pull-left" ng-if="member.imgUrl" style="background:url('{{member.imgUrl}}') center center no-repeat"></span>
+        <span class="avatar initials pull-left" ng-if="!member.imgUrl && member.initials">{{member.initials}}</span>
+        <span class="member-name">{{member.text}}</span>
+        <span class="icon-not-started-circle" id="{{member.id}}" ng-class="{'icon-delete-disable' : !isOwner}" ng-click="removeUser($event)" uib-tooltip="${Remove member}" tooltip-append-to-body="true" tooltip-placement="bottom"></span>
+      </li>
+    </ul>
+  </div>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="HR Portal Headcount" max_length="40" name="x_baes2_hr_portal_headcount" type="collection">
+        <element label="employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
+        <element label="Line Manager" max_length="32" name="line_manager" reference="sys_user" type="reference"/>
+        <element label="Email Address" max_length="40" name="u_email_address" type="string"/>
+        <element label="Employee Number" max_length="40" name="u_employee_number" type="string"/>
+        <element label="First Name" max_length="40" name="u_first_name" type="string"/>
+        <element label="Full Name" max_length="40" name="u_full_name" type="string"/>
+        <element label="GCI" max_length="40" name="u_gci" type="string"/>
+        <element label="Home Business Level 3" max_length="40" name="u_home_business_level_3" type="string"/>
+        <element label="Home Cost Centre" max_length="40" name="u_home_cost_centre" type="string"/>
+        <element label="Home Line Manager Email" max_length="40" name="u_home_line_manager_email" type="string"/>
+        <element label="Home Line Manager GCI" max_length="40" name="u_home_line_manager_gci" type="string"/>
+        <element label="Home Line Manager Name" max_length="40" name="u_home_line_manager_name" type="string"/>
+        <element label="Home Team" max_length="40" name="u_home_team" type="string"/>
+        <element label="Last Name" max_length="40" name="u_last_name" type="string"/>
+        <element label="Worker Class" max_length="40" name="u_worker_class" type="string"/>
+        <index name="index">
+            <element name="line_manager"/>
+        </index>
+        <index name="index2">
+            <element name="employee"/>
+        </index>
+    </element>
+</database>

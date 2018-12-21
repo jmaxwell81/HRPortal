@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="absence_doctors_visit_medication" table="x_baes2_hr_portal_rtw_request" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>absence_doctors_visit_medication</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No</label>
+            <language>en</language>
+            <name>x_baes2_hr_portal_rtw_request</name>
+            <sequence/>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:21:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>39c922cddb39e300e9c39334ca961997</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:21:49</sys_updated_on>
+            <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>absence_doctors_visit_medication</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Yes</label>
+            <language>en</language>
+            <name>x_baes2_hr_portal_rtw_request</name>
+            <sequence/>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:21:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>48d9ee8ddb39e300e9c39334ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:21:58</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>absence_doctors_visit_medication</element>
+            <name>x_baes2_hr_portal_rtw_request</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+            <sys_created_on>2018-11-14 09:21:49</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>47c9e64ddb39e300e9c39334ca9619b1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>absence_doctors_visit_medication</sys_name>
+            <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+            <sys_update_name>sys_choice_x_baes2_hr_portal_rtw_request_absence_doctors_visit_medication</sys_update_name>
+            <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+            <sys_updated_on>2018-11-14 09:21:49</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

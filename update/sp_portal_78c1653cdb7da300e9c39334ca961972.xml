@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$grid-gutter-width: 15px !default;&#13;
+$color-blue : #4b96d1;&#13;
+$color-accent : #278EFC;&#13;
+$color-accent-light: #BDDCFC;&#13;
+$color-darker: #485563;&#13;
+$color-dark : #81878E;&#13;
+$color-light: #BDC0C4;&#13;
+$color-lighter: #E6E8EA;&#13;
+$color-lightest: #FFFFFF;&#13;
+$color-darkest : #343D47;&#13;
+$border-color : #DDDDDD;&#13;
+$color-yellow: #FCC742;&#13;
+$color-red : #F95050;&#13;
+$color-green : #71E279;&#13;
+$color-gantt-cell : #82878F;&#13;
+$color-gantt-shadow-task : #CED4DB;&#13;
+$color-gantt-shadow-task-progress : #313A46;&#13;
+$color-lightest-border : #F8F8F8;&#13;
+$color-light-border : #F95050;&#13;
+$color-danger-background : #D9534F;&#13;
+$color-danger-border : #AC2925;&#13;
+$color-required-filled : #bdc0c4;&#13;
+$color-required : #f95050;</css_variables>
+        <default>false</default>
+        <homepage display_value="sphr_index">5c6521fcdb7da300e9c39334ca961949</homepage>
+        <icon/>
+        <kb_knowledge_base display_value="HR Portal Knowledge">3ebe59b8db7da300e9c39334ca9619dc</kb_knowledge_base>
+        <kb_knowledge_page display_value="kb_view2">26c2e030d7201200a9addd173e24d437</kb_knowledge_page>
+        <login_page display_value="landing">36c61807cb31120000f8d856634c9ca9</login_page>
+        <logo/>
+        <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
+        <quick_start_config/>
+        <sc_catalog display_value="HR Portal Catalog">bebe59b8db7da300e9c39334ca9619cc</sc_catalog>
+        <sc_catalog_page display_value="sc_home">fe87a11147132100ba13a5554ee490b9</sc_catalog_page>
+        <sc_category_page/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="SPHR Mega Menu">4c63297cdb7da300e9c39334ca961971</sp_rectangle_menu>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-13 09:30:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>78c1653cdb7da300e9c39334ca961972</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>HR Portal</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_portal_78c1653cdb7da300e9c39334ca961972</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 11:20:41</sys_updated_on>
+        <theme display_value="Mega-Menu">f0cad5a10f6de600fdbb4d9ce1050ecb</theme>
+        <title>HR Portal</title>
+        <url_suffix>sphr</url_suffix>
+    </sp_portal>
+</record_update>

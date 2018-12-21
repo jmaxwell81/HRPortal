@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope) {
+	// widget controller
+	var c = this;
+	extScope = $scope;
+
+	// Default Tab
+	$scope.data.showRTW = true;
+	$scope.data.showAR = false;
+
+	// Return To Work Tabs
+	$scope.data.showAllRTW = true;
+	$scope.data.show12MthRTW = false;
+	$scope.data.show6MthRTW = false;
+	$scope.data.show3MthRTW = false;
+
+	// Attendance Review Tabs
+	$scope.data.showAllAR = true;
+	$scope.data.show12MthAR = false;
+	$scope.data.show6MthAR = false;
+	$scope.data.show3MthAR = false;
+	
+	// COMMENTED FOR TESTING !!!!!!!!!!!!!!!!!!!!
+	$scope.data.employeeFilter = 'active=true^manager=' + $scope.data.userID;
+		
+	$scope.data.inputFiledEmployee = {
+		value: $scope.data.employeeId,
+		display_value: $scope.data.employeeName,
+		name: 'employee'
+	};	
+	
+	$scope.sortType     = 'number'; // set the default sort type
+	$scope.sortReverse  = true;  // set the default sort order
+	$scope.searchTerm   = '';     // set the default search/filter term	
+		
+	$scope.applyFilter = function(id, employee) {
+		//alert('Filter=' + id + '    Employee=' + employee);	
+		c.data.action = "setFilter";
+		c.data.itemID = id;
+		c.data.employeeID = employee;		
+		c.server.update();		
+	};	
+	
+	$scope.showRTW = function(){
+		$scope.data.showRTW = true;
+		$scope.data.showAR = false;
+	};
+	
+	$scope.showAR = function(){
+		$scope.data.showRTW = false;
+		$scope.data.showAR = true;
+	};
+	
+	$scope.selectAllRTW = function() {
+		$scope.data.showAllRTW = true;
+		$scope.data.show12MthRTW = false;
+		$scope.data.show6MthRTW = false;
+		$scope.data.show3MthRTW = false;
+		// Apply selection
+		$scope.applyFilter('selectAllRTW', $scope.data.employeeId);
+	};
+	
+	$scope.select12MthRTW = function() {
+		$scope.data.showAllRTW = false;		
+		$scope.data.show12MthRTW = true;
+		$scope.data.show6MthRTW = false;
+		$scope.data.show3MthRTW = false;
+		// Apply selection
+		$scope.applyFilter('select12MthRTW', $scope.data.employeeId);		
+	};	
+	
+	$scope.select6MthRTW = function() {
+		$scope.data.showAllRTW = false;		
+		$scope.data.show12MthRTW = false;
+		$scope.data.show6MthRTW = true;
+		$scope.data.show3MthRTW = false;
+		// Apply selection
+		$scope.applyFilter('select6MthRTW', $scope.data.employeeId);		
+	};	
+	
+	$scope.select3MthRTW = function() {
+		$scope.data.showAllRTW = false;		
+		$scope.data.show12MthRTW = false;
+		$scope.data.show6MthRTW = false;
+		$scope.data.show3MthRTW = true;
+		// Apply selection
+		$scope.applyFilter('select3MthRTW', $scope.data.employeeId);		
+	};
+	
+	$scope.selectAllAR = function() {
+		$scope.data.showAllAR = true;
+		$scope.data.show12MthAR = false;
+		$scope.data.show6MthAR = false;
+		$scope.data.show3MthAR = false;
+		// Apply selection
+		$scope.applyFilter('selectAllAR', $scope.data.employeeId);
+	};
+	
+	$scope.select12MthAR = function() {
+		$scope.data.showAllAR = false;		
+		$scope.data.show12MthAR = true;
+		$scope.data.show6MthAR = false;
+		$scope.data.show3MthAR = false;
+		// Apply selection
+		$scope.applyFilter('select12MthAR', $scope.data.employeeId);		
+	};	
+	
+	$scope.select6MthAR = function() {
+		$scope.data.showAllAR = false;		
+		$scope.data.show12MthAR = false;
+		$scope.data.show6MthAR = true;
+		$scope.data.show3MthAR = false;
+		// Apply selection
+		$scope.applyFilter('select6MthAR', $scope.data.employeeId);		
+	};	
+	
+	$scope.select3MthAR = function() {
+		$scope.data.showAllAR = false;		
+		$scope.data.show12MthAR = false;
+		$scope.data.show6MthAR = false;
+		$scope.data.show3MthAR = true;
+		// Apply selection
+		$scope.applyFilter('select3MthAR', $scope.data.employeeId);		
+	};
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Status Icons */&#13;
+.center {&#13;
+  text-align:center!important;  &#13;
+}&#13;
+.fa-circle.Green {&#13;
+  color: #5cb85c!important;&#13;
+  border:none!important;&#13;
+}&#13;
+&#13;
+.fa-circle.Yellow {&#13;
+  color: #FFC200!important;&#13;
+  border:none!important;  &#13;
+}&#13;
+&#13;
+.fa-circle.Red {&#13;
+  color: #FF0000!important;&#13;
+  border:none!important;  &#13;
+}&#13;
+&#13;
+.panel-title {&#13;
+    font-size: 14px!important;&#13;
+}&#13;
+.panel-body {&#13;
+    padding: 0px!important;&#13;
+}&#13;
+&#13;
+.percent_complete_wrapper {&#13;
+    display: -webkit-box;&#13;
+    display: -moz-box;&#13;
+    display: -ms-flexbox;&#13;
+    display: -webkit-flex;&#13;
+    display: flex;&#13;
+    border: none;&#13;
+    background-color: transparent;&#13;
+    position: relative;&#13;
+    margin-top: 2px;&#13;
+    width: 100%;&#13;
+    min-width:100px;&#13;
+}&#13;
+.percent_complete_wrapper .percent_complete_total {&#13;
+    -webkit-box-flex: 1;&#13;
+    -moz-box-flex: 1;&#13;
+    -webkit-flex: 1;&#13;
+    -ms-flex: 1;&#13;
+    flex: 1;&#13;
+    background-color: #bdc0c4;&#13;
+    position: relative;&#13;
+}&#13;
+&#13;
+.percent_complete_wrapper .percent_complete_target {&#13;
+    background-color: #81878e;&#13;
+}&#13;
+&#13;
+.percent_complete_wrapper .percent_complete_total &gt; * {&#13;
+    position: absolute;&#13;
+    height: 100%;&#13;
+}&#13;
+&#13;
+.percent_complete_wrapper .percent_complete_actual {&#13;
+    background-color: #278efc;&#13;
+    display: inline-block;&#13;
+}&#13;
+&#13;
+.percent_complete_wrapper .percent_complete_total &gt; * {&#13;
+    position: absolute;&#13;
+    height: 100%;&#13;
+}&#13;
+.percent_complete_text {&#13;
+  margin-right:10px;&#13;
+}&#13;
+&#13;
+tooltip tip {&#13;
+  text-align: left!important;&#13;
+  min-width: 400px!important;&#13;
+}&#13;
+&#13;
+@media only screen and (max-width: 435px) {&#13;
+    .portfolio-heading{&#13;
+          font-size: 24px;&#13;
+          margin-top: 10px;&#13;
+       }&#13;
+ 	 .break-line{&#13;
+   		display:none; &#13;
+ 	 }&#13;
+ }&#13;
+&#13;
+@media only print {&#13;
+  .print-visible {&#13;
+       display: block !important;&#13;
+   }&#13;
+   a[href]:after {&#13;
+       content: none !important;&#13;
+   }  &#13;
+}&#13;
+&#13;
+.sort-container{&#13;
+margin:5px;&#13;
+}&#13;
+.success-color{&#13;
+  //fill:#dff0d8;&#13;
+  //stroke:#dff0d8;&#13;
+  fill:#149b5f;&#13;
+  stroke:#149b5f;&#13;
+}&#13;
+&#13;
+span.sort-items {&#13;
+    margin: 10px;&#13;
+    text-decoration: underline;&#13;
+}&#13;
+&#13;
+.warning-color{&#13;
+  //fill:#fcf8e3;&#13;
+  //stroke:#fcf8e3;&#13;
+  fill:orange;&#13;
+  stroke:orange;&#13;
+}&#13;
+&#13;
+.danger-color{&#13;
+  //fill:#f2dede;&#13;
+  //stroke:#f2dede;&#13;
+  stroke:#ec1a3a;&#13;
+  fill:#ec1a3a;&#13;
+}&#13;
+&#13;
+.display-nothin{&#13;
+display:none;&#13;
+}&#13;
+&#13;
+.remove-margin{&#13;
+ margin:0px; &#13;
+}&#13;
+&#13;
+.each-project{&#13;
+  	font-weight:300;&#13;
+  	padding:10px;&#13;
+  	border-top: 1px solid #dddddd;  &#13;
+    display: flex;&#13;
+    justify-content: space-between;&#13;
+    align-items: center;&#13;
+  	margin-bottom:10px;&#13;
+  &#13;
+  .right-side{&#13;
+    text-align:center;&#13;
+    padding: 2px;&#13;
+  }&#13;
+  &#13;
+  .left-side{&#13;
+    &#13;
+    .project-name{&#13;
+      font-size:16px;&#13;
+      display:block;&#13;
+    }&#13;
+  }&#13;
+  &#13;
+}&#13;
+&#13;
+.overall-status-text {&#13;
+  position: relative;&#13;
+  cursor : pointer;&#13;
+  &amp;:hover .status-cntr {&#13;
+    display : block;&#13;
+  }&#13;
+  .status-cntr {&#13;
+    position: absolute;&#13;
+    border: 1px solid $color-lighter;&#13;
+    background-color: $color-lightest;&#13;
+    padding: 8px;&#13;
+    display: none;&#13;
+    border-radius : 3px;&#13;
+  	width: 180px;&#13;
+  	width: 400px;    &#13;
+    top: 27px;&#13;
+    left: -80px;&#13;
+    left: -10px;    &#13;
+    z-index: 1;&#13;
+    .each-status-cntr {&#13;
+      padding: 5px 10px;&#13;
+    }&#13;
+    .status-cntr-txt {&#13;
+      text-align: left;&#13;
+      width : 60px;&#13;
+      width : 220px;      &#13;
+      margin-right: 20px;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.arrow_box:after, .arrow_box:before {&#13;
+	bottom: 100%;&#13;
+	left: 10%;&#13;
+	border: solid transparent;&#13;
+	content: " ";&#13;
+	height: 0;&#13;
+	width: 0;&#13;
+	position: absolute;&#13;
+	pointer-events: none;&#13;
+}&#13;
+&#13;
+.arrow_box:after {&#13;
+	border-color: rgba(255, 255, 255, 0);&#13;
+	border-bottom-color: $color-lightest;&#13;
+	border-width: 10px;&#13;
+	margin-left: -10px;&#13;
+}&#13;
+.arrow_box:before {&#13;
+	border-color: rgba(230, 232, 234, 0);&#13;
+	border-bottom-color: $color-lighter;&#13;
+	border-width: 11px;&#13;
+	margin-left: -11px;&#13;
+}&#13;
+&#13;
+/*****************************************/&#13;
+/*     REPLACEMENT TOOLTIP RULES         */&#13;
+/*****************************************/&#13;
+&#13;
+.tooltip-popover{&#13;
+  color: $color-black;&#13;
+  padding: 6px 0;&#13;
+  .popover-title{&#13;
+    font-size: 18px;&#13;
+    margin-bottom: 25px;&#13;
+    border: none;&#13;
+    padding:0 21px;&#13;
+  }&#13;
+  .color-items{&#13;
+    list-style: none;&#13;
+    padding:0;&#13;
+    max-height: calc(100vh - 147px);&#13;
+    overflow-y: auto;&#13;
+    padding: 0 5px;&#13;
+    margin-bottom: 0px;&#13;
+    .color-item{&#13;
+      border-bottom: 1px solid $color-lighter;&#13;
+      margin-bottom: 5px;&#13;
+      padding-bottom: 5px;&#13;
+      .color-label{&#13;
+        display: inline-block;&#13;
+        font-size: 12px;&#13;
+        margin-right: 5px;&#13;
+      }&#13;
+      .color-box{&#13;
+        width: 24px;&#13;
+        height: 24px;&#13;
+        border: 1px solid $color-light;&#13;
+        border-radius: 3px;&#13;
+        display: inline-block;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.viewBtn {&#13;
+  border:none!important;&#13;
+  padding:0px!important;&#13;
+  outline:none!important;  &#13;
+  height: 20px!important;&#13;
+  width: 20px!important;&#13;
+  vertical-align:top!important;&#13;
+  text-align:left!important;&#13;
+}&#13;
+&#13;
+.btn-default {&#13;
+	color: #333;&#13;
+	background-color: #fff;&#13;
+    background: transparent;&#13;
+	border-color: #ccc;&#13;
+}&#13;
+.btn-default:focus, .btn-default.focus {&#13;
+	color: #333;&#13;
+	/* background-color: #e6e6e6; */&#13;
+	border-color: #8c8c8c;&#13;
+}&#13;
+.btn-default:hover {&#13;
+	color: #333;&#13;
+	/* background-color: #e6e6e6; */&#13;
+	border-color: #adadad;&#13;
+}&#13;
+.btn-default:active, .btn-default.active, .open &gt; .btn-default.dropdown-toggle {&#13;
+	color: #333;&#13;
+	background-color: #e6e6e6;&#13;
+	border-color: #adadad;&#13;
+}&#13;
+.btn-default:active:hover, .btn-default:active:focus, .btn-default.focus:active, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open &gt; .btn-default.dropdown-toggle:hover, .open &gt; .btn-default.dropdown-toggle:focus, .open &gt; .btn-default.dropdown-toggle.focus {&#13;
+	color: #333;&#13;
+	background-color: #d4d4d4;&#13;
+	border-color: #8c8c8c;&#13;
+}&#13;
+.btn-default:active, .btn-default.active, .open &gt; .btn-default.dropdown-toggle {&#13;
+	background-image: none;&#13;
+}&#13;
+.btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default.focus {&#13;
+	background-color: #fff;&#13;
+	border-color: #ccc;&#13;
+}&#13;
+.btn-default .badge {&#13;
+	color: #fff;&#13;
+	background-color: #333;&#13;
+}&#13;
+&#13;
+.icon-info:before {&#13;
+    vertical-align: baseline;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hr-absence-overview</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element, attrs){
+	
+	scope.showAllReports = function() {
+		$("#show-all-reports").find(".select2-choice").mousedown();
+	};	
+	
+	scope.$watch('data.inputFiledEmployee.value', function() {
+		var employeeId = scope.data.inputFiledEmployee.value;
+		if(scope.data.employeeId === employeeId) {
+			return;
+		}
+		// Apply Filter
+		scope.applyFilter('selectEmployee', employeeId);	
+	});	
+	
+}]]></link>
+        <name>HR Portal - Absence Overview</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	if (input) {
+		
+		// Client Request For Catalog Item Tooltip
+		if (input && input.action === "setFilter") {
+			
+			// Filter selection
+			data.selectionId = input.itemID;
+			data.employeeId = input.employeeID;	
+		
+			// Ensure valid employee
+			var validEmployee = false;			
+			if (data.employeeId) {				
+				var gr_user = new GlideRecord('sys_user');
+				if (gr_user.get(data.employeeId)) {
+					data.employeeName = gr_user.getDisplayValue('name');
+					if (gr_user.getValue('manager') == gs.getUserID()) {
+						validEmployee = true;					
+						getRTWTotals();
+						getARTotals();
+					}
+				}
+			}
+			
+			// Populate display arrays
+			data.RTW = [];
+			data.AR = [];		
+			if (validEmployee) {			
+				data.RTW = getRTW(data.selectionId);
+				data.AR = getAR(data.selectionId);
+			}
+			
+		}
+		return;
+	}
+	
+	else {		
+		// Initial load		
+		data.selectionId = 'selectAllRTW';
+		data.userID = gs.getUserID();		
+		data.employeeId = $sp.getParameter('sysparm_user');		
+		data.employeeName = 'Employee';		
+		
+		// Ensure valid employee
+		var validEmployee = false;		
+		if (data.employeeId) {
+			var gr_user = new GlideRecord('sys_user');
+			if (gr_user.get(data.employeeId)) {
+				data.employeeName = gr_user.getDisplayValue('name');
+				if (gr_user.getValue('manager') == gs.getUserID()) {
+					validEmployee = true;
+					getRTWTotals();
+					getARTotals();
+				}
+			}
+		}
+		
+		// Populate display arrays
+		data.RTW = [];
+		data.AR = [];		
+		if (validEmployee) {
+			data.RTW = getRTW(data.selectionId);
+			data.AR = getAR(data.selectionId);
+		}
+
+	}
+	
+// Return To Work
+function getRTW(filter) {
+	
+	// RTW Fields
+	data.rtwfields = $sp.getListColumns('x_baes2_hr_portal_rtw_request', 'RTW Review');	
+    data.rtwfields_array = data.rtwfields.split(',');	
+	
+	// RTW Records
+	var RTW = [];	
+
+	// Get all RTW
+	var gr_RTW = new GlideRecord('x_baes2_hr_portal_rtw_request');
+	gr_RTW.addQuery('employee', data.employeeId);	
+
+	// Constrain by Selection
+	if (filter == 'select12MthRTW') {
+		gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(12)');
+	}
+	
+	if (filter == 'select6MthRTW') {		
+		gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(6)');
+	}	
+	
+	if (filter == 'select3MthRTW') {		
+		gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(3)');
+	}
+	
+	// Order by descending number
+	gr_RTW.orderByDesc('number');
+
+	gr_RTW.query();
+
+	// Populate data model with RTW
+	while (gr_RTW.next()) {
+		var rec_RTW = {};
+		rec_RTW.sys_id = gr_RTW.getUniqueValue();
+		rec_RTW.number_display = gr_RTW.getDisplayValue('number');
+		rec_RTW.employee_display = gr_RTW.getDisplayValue('employee');
+		rec_RTW.employeeId = gr_RTW.getValue('employee');			
+		rec_RTW.line_manager_display = gr_RTW.getDisplayValue('line_manager');		
+		rec_RTW.absence_start = gr_RTW.getValue('absence_start');
+		rec_RTW.absence_start_display = gr_RTW.getDisplayValue('absence_start');		
+		rec_RTW.absence_end = gr_RTW.getValue('absence_end');
+		rec_RTW.absence_end_display = gr_RTW.getDisplayValue('absence_end');		
+		rec_RTW.absence_expected_return = gr_RTW.getValue('absence_expected_return');
+		rec_RTW.absence_expected_return_display = gr_RTW.getDisplayValue('absence_expected_return');	
+		rec_RTW.absence_reason_type = gr_RTW.getDisplayValue('absence_reason_type');
+		rec_RTW.absence_reason = gr_RTW.getDisplayValue('absence_reason');		
+		rec_RTW.form_completed = gr_RTW.getValue('form_completed');
+		rec_RTW.absence_doctors_visit = gr_RTW.getDisplayValue('absence_doctors_visit');
+		rec_RTW.absence_doctors_visit_medication = gr_RTW.getDisplayValue('absence_doctors_visit_medication');
+		rec_RTW.review_mitigating_circumstance = gr_RTW.getDisplayValue('review_mitigating_circumstance');		
+		rec_RTW.absence_employee_actions = gr_RTW.getDisplayValue('absence_employee_actions');		
+		rec_RTW.absence_accident_at_work = gr_RTW.getDisplayValue('absence_accident_at_work');
+		rec_RTW.absence_accident_reported_correctly = gr_RTW.getDisplayValue('absence_accident_reported_correctly');		
+		rec_RTW.absence_employee_job_impact = gr_RTW.getDisplayValue('absence_employee_job_impact');
+		rec_RTW.absence_employee_bae_support = gr_RTW.getDisplayValue('absence_employee_bae_support');
+		rec_RTW.absence_occupational_health_referral = gr_RTW.getDisplayValue('absence_occupational_health_referral');
+		rec_RTW.absence_bae_procedures_followed = gr_RTW.getDisplayValue('absence_bae_procedures_followed');		
+		rec_RTW.form_completed_display = gr_RTW.getDisplayValue('form_completed');
+		rec_RTW.updated_on = gr_RTW.getDisplayValue("sys_updated_on");			
+		rec_RTW.updated_by = gr_RTW.getDisplayValue("sys_updated_by");		
+        $sp.getRecordElements(rec_RTW, gr_RTW, data.rtwfields);
+		for (var f in data.rtwfields_array) { 
+			var fld = data.rtwfields_array[f];
+			if (!gr_RTW.isValidField(fld))
+				continue;
+
+			if (!gr_RTW[fld].canRead()) {
+				rec_RTW[fld].value = null;
+				rec_RTW[fld].display_value = null;
+			}
+		}
+		RTW.push(rec_RTW);
+	}
+	
+	// Return selected records
+	return RTW;
+	
+}
+	
+// Attendance Review
+function getAR(filter) {
+	
+	// RTW Fields
+	data.arfields = $sp.getListColumns('x_baes2_hr_portal_ar_request', 'default');	
+    data.arfields_array = data.arfields.split(',');
+	
+	// AR Records
+	 var AR = [];	
+	
+	// Get all AR
+	var gr_AR = new GlideRecord('x_baes2_hr_portal_ar_request');
+	gr_AR.addQuery("employee", data.employeeId);	
+
+	// Constrain by Selection
+	if (filter == 'select12MthAR') { 
+		gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(12)');
+	}
+	
+	if (filter == 'select6MthAR') { 
+		gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(6)');
+	}	
+	
+	if (filter == 'select3MthAR') { 
+		gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(3)');
+	}	
+	
+	// Order by descending number
+	gr_AR.orderByDesc('number');	
+
+	gr_AR.query();		
+
+	// Populate data model with AR
+	while (gr_AR.next()) {		
+		var rec_AR = {};
+		rec_AR.sys_id = gr_AR.getUniqueValue();
+		rec_AR.number_display = gr_AR.getValue('number');
+		rec_AR.employee_display = gr_AR.getDisplayValue('employee');
+		rec_AR.employeeId = gr_AR.getValue('employee');			
+		rec_AR.line_manager_display = gr_AR.getDisplayValue('line_manager');			
+		rec_AR.review_date = gr_AR.getValue('review_date');
+		rec_AR.review_trigger_display = gr_AR.getDisplayValue('review_trigger');		
+		rec_AR.review_date_display = gr_AR.getDisplayValue('review_date');		
+		rec_AR.hearing_manager_display = gr_AR.getDisplayValue('hearing_manager');
+		rec_AR.tu_representative_display = gr_AR.getDisplayValue('tu_representative');
+		rec_AR.review_current_warning_level = gr_AR.getDisplayValue('review_current_warning_level');	
+		rec_AR.review_summary = gr_AR.getDisplayValue('review_summary');
+		rec_AR.review_mitigating_circumstances = gr_AR.getDisplayValue('review_mitigating_circumstances');
+		rec_AR.review_occupational_health_referral = gr_AR.getDisplayValue('review_occupational_health_referral');		
+		rec_AR.review_occupational_health_referral_reason = gr_AR.getDisplayValue('review_occupational_health_referral_reason');		
+		rec_AR.review_issued_warning_level = gr_AR.getDisplayValue('review_issued_warning_level');
+		rec_AR.review_issued_warning_level_reason = gr_AR.getDisplayValue('review_issued_warning_level_reason');	
+		rec_AR.review_right_of_appeal_offered = gr_AR.getDisplayValue('review_right_of_appeal_offered');
+		rec_AR.updated_on = gr_AR.getDisplayValue("sys_updated_on");			
+		rec_AR.updated_by = gr_AR.getDisplayValue("sys_updated_by");			
+        $sp.getRecordElements(rec_AR, gr_AR, data.arfields);
+		for (var f in data.arfields_array) { 
+			var fld = data.arfields_array[f];
+			if (!gr_AR.isValidField(fld))
+				continue;
+
+			if (!gr_AR[fld].canRead()) {
+				rec_AR[fld].value = null;
+				rec_AR[fld].display_value = null;
+			}
+		}		
+		AR.push(rec_AR);
+	}
+	
+	// Return selected records
+	return AR;
+	
+}
+	
+// Return To Work Totals
+function getRTWTotals() {
+	
+	// All Record Count	
+	var gr_RTW = new GlideRecord("x_baes2_hr_portal_rtw_request");
+	gr_RTW.addQuery('employee', data.employeeId);	
+	gr_RTW.query();
+	data.total_allRTW = gr_RTW.getRowCount();
+	
+	// 12Mth Record Count
+    gr_RTW = new GlideRecord("x_baes2_hr_portal_rtw_request");
+	gr_RTW.addQuery('employee', data.employeeId);
+	gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(12)');		
+	gr_RTW.query();
+	data.total_12MthRTW = gr_RTW.getRowCount();
+	
+	// 6Mth Record Count
+    gr_RTW = new GlideRecord("x_baes2_hr_portal_rtw_request");
+	gr_RTW.addQuery('employee', data.employeeId);
+	gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(6)');	
+	gr_RTW.query();
+	data.total_6MthRTW = gr_RTW.getRowCount();
+	
+	// 3Mth Record Count
+    gr_RTW = new GlideRecord("x_baes2_hr_portal_rtw_request");
+	gr_RTW.addQuery('employee', data.employeeId);
+	gr_RTW.addQuery('absence_start', '>=', 'javascript:gs.monthsAgoStart(3)');	
+	gr_RTW.query();
+	data.total_3MthRTW = gr_RTW.getRowCount();
+	
+}	
+	
+// Attendance Review Totals
+function getARTotals() {
+		
+	// All Record Count	
+	var gr_AR = new GlideRecord("x_baes2_hr_portal_ar_request");
+	gr_AR.addQuery('employee', data.employeeId);	
+	gr_AR.query();
+	data.total_allAR = gr_AR.getRowCount();
+	
+	// 12Mth Record Count
+    gr_AR = new GlideRecord("x_baes2_hr_portal_ar_request");
+	gr_AR.addQuery('employee', data.employeeId);
+	gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(12)');		
+	gr_AR.query();
+	data.total_12MthAR = gr_AR.getRowCount();
+	
+	// 6Mth Record Count
+    gr_AR = new GlideRecord("x_baes2_hr_portal_ar_request");
+	gr_AR.addQuery('employee', data.employeeId);
+	gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(6)');	
+	gr_AR.query();
+	data.total_6MthAR = gr_AR.getRowCount();
+	
+	// 3Mth Record Count
+    gr_AR = new GlideRecord("x_baes2_hr_portal_ar_request");
+	gr_AR.addQuery('employee', data.employeeId);
+	gr_AR.addQuery('sys_created_on', '>=', 'javascript:gs.monthsAgoStart(3)');	
+	gr_AR.query();
+	data.total_3MthAR = gr_AR.getRowCount();
+	
+}	
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-30 09:34:55</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4f3681d6db42eb00561fb29a68961940</sys_id>
+        <sys_mod_count>264</sys_mod_count>
+        <sys_name>HR Portal - Absence Overview</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_widget_4f3681d6db42eb00561fb29a68961940</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-17 15:02:46</sys_updated_on>
+        <template><![CDATA[<div class="row">
+    <div class="col-md-12" style="padding :0px;">
+
+        <form style="margin-top:0px; margin-bottom:0px">
+          	<nav class="psp-overview-top-hdr-cntr" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-text col-sm-12 clearfix">
+                  <div id="title" class="navbar-title pull-left">
+                    <label class="entity-console-name">{{data.employeeName}}</label>
+                  </div>
+                  <button class="btn icon-arrow-down-triangle dropdown-toggle pull-left" id="show-all-reports" ng-click="showAllReports()" uib-tooltip="${Employees}" tooltip-placement="bottom-left" aria-label="${Show or hide more lists}" aria-haspopup="true" aria-expanded="false">
+                    <div class="console-reference-picker">
+                      <sn-record-picker class="add-members-dd" field="data.inputFiledEmployee" table="'sys_user'" default-query="data.employeeFilter" display-field="'name'" value-field="'sys_id'" search-fields="'name'"  options="{allowClear: false}" tabindex="-1" placeholder="${Select an employee}"/>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </nav>
+            <div class="psp-overview-top-rbns-cntr clearfix">
+              <div ng-show="data.showRTW" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.showAllRTW}" ng-click="selectAllRTW()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${All Returns To Work}</div>                       
+                      </div>
+                      <h1>{{data.total_allRTW}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showRTW" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-over-budget-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show12MthRTW}" ng-click="select12MthRTW()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Returns To Work Within Last 12 Months}</div>
+                      </div>
+                      <h1>{{data.total_12MthRTW}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showRTW" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-behind-schedule-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show6MthRTW}" ng-click="select6MthRTW()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Returns To Work Within Last 6 Months}</div>
+                      </div>
+                      <h1>{{data.total_6MthRTW}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showRTW" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-high-risk-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show3MthRTW}" ng-click="select3MthRTW()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Returns To Work Within Last 3 Months}</div>
+                      </div>
+                      <h1>{{data.total_3MthRTW}}</h1>
+                  </div>
+              </div>              
+              <div ng-show="data.showAR" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.showAllAR}" ng-click="selectAllAR()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${All Attendance Reviews}</div>                       
+                      </div>
+                      <h1>{{data.total_allAR}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showAR" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-over-budget-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show12MthAR}" ng-click="select12MthAR()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Attendance Reviews Within Last 12 Months}</div>
+                      </div>
+                      <h1>{{data.total_12MthAR}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showAR" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-behind-schedule-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show6MthAR}" ng-click="select6MthAR()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Attendance Reviews Within Last 6 Months}</div>
+                      </div>
+                      <h1>{{data.total_6MthAR}}</h1>
+                  </div>
+              </div>
+              <div ng-show="data.showAR" class="ribbons-cntr clearfix col-md-3">
+                  <div class="total-projects-high-risk-cntr panel panel-default top-ribbon clearfix actionable" ng-class="{'active' : data.show3MthAR}" ng-click="select3MthAR()">
+                      <div class="panel-heading ribbon-hdr">
+                      <div class="panel-title">${Attendance Reviews Within Last 3 Months}</div>
+                      </div>
+                      <h1>{{data.total_3MthAR}}</h1>
+                  </div>
+              </div>              
+            </div>
+            <div class="status-timeline-cntr panel panel-default clearfix">
+                <ul class="nav nav-tabs"> 
+                  <li ng-class="{'active': data.showRTW}" class="active" style=""><a href="javascript:void(0)" ng-click="showRTW()" role="link">Return To Work</a></li> 
+                  <li ng-class="{'active': data.showAR}" class="" style=""><a href="javascript:void(0)" ng-click="showAR()" role="link">Attendance Review</a></li> 
+                </ul>
+                <div class="panel-body">
+                  <div ng-show="data.showRTW" class="clearfix" aria-hidden="false" style="">
+                      <div class="project-report-table-wrpr">
+                          <table class="table table-bordered table-striped project-report-table hidden-xs print-visible">
+                              <tbody>
+                                  <tr>
+                                      <th width="13%">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'number'; sortReverse = !sortReverse">RTW Reference</a>
+                                          <span ng-show="sortType == 'number' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'number' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="13%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_start'; sortReverse = !sortReverse">Absence Start</a>
+                                          <span ng-show="sortType == 'absence_start' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_start' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>              
+                                      <th width="13%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_end'; sortReverse = !sortReverse">Absence End</a>
+                                          <span ng-show="sortType == 'absence_end' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_end' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="13%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_expected_return'; sortReverse = !sortReverse">Expected Return</a>
+                                          <span ng-show="sortType == 'absence_expected_return' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_expected_return' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                          
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_reason_type'; sortReverse = !sortReverse">Reason Type</a>
+                                          <span ng-show="sortType == 'absence_reason_type' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_reason_type' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                    
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_doctors_visit'; sortReverse = !sortReverse">Doctors Visit?</a>
+                                          <span ng-show="sortType == 'absence_doctors_visit' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_doctors_visit' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_accident_at_work'; sortReverse = !sortReverse">Work Accident?</a>
+                                          <span ng-show="sortType == 'absence_accident_at_work' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_accident_at_work' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_employee_job_impact'; sortReverse = !sortReverse">Job Impact?</a>
+                                          <span ng-show="sortType == 'absence_employee_job_impact' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_employee_job_impact' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_employee_bae_support'; sortReverse = !sortReverse">BAE Support?</a>
+                                          <span ng-show="sortType == 'absence_employee_bae_support' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_employee_bae_support' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_occupational_health_referral'; sortReverse = !sortReverse">OCH Referral?</a>
+                                          <span ng-show="sortType == 'absence_occupational_health_referral' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_occupational_health_referral' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'absence_bae_procedures_followed'; sortReverse = !sortReverse">BAE Procedures?</a>
+                                          <span ng-show="sortType == 'absence_bae_procedures_followed' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'absence_bae_procedures_followed' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="13%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'form_completed'; sortReverse = !sortReverse">Form Completed</a>
+                                          <span ng-show="sortType == 'form_completed' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'form_completed' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>             
+                                  </tr>
+
+                                  <tr ng-repeat='rtw in data.RTW | orderBy:sortType:sortReverse | filter:searchProjects'>
+                                      <td>
+                                          <button id="tooltip-button-{{rtw.sys_id}}" type="button" class="cd-tooltip viewBtn btn btn-default icon-info btn-icon" uib-popover-template="'rtw-tooltip'" popover-placement='bottom-left' popover-trigger='outsideClick' popover-is-open='rtw.isInfoPopoverOpen' aria-haspopup='true' aria-expanded="{{rtw.isInfoPopoverOpen}}" data-container="body"><span class="sr-only">${Information}</span></button>                                                                                   
+                                          <a href="javascript:void(0)">{{ rtw.number_display }}</a>
+                                      </td>
+                                      <td align="center">{{ rtw.absence_start_display }}</td>
+                                      <td align="center">{{ rtw.absence_end_display }}</td> 
+                                      <td align="center">{{ rtw.absence_expected_return_display }}</td> 
+                                      <td align="center">{{ rtw.absence_reason_type }}</td>
+                                      <td align="center">{{ rtw.absence_doctors_visit }}</td>
+                                      <td align="center">{{ rtw.absence_accident_at_work }}</td>
+                                      <td align="center">{{ rtw.absence_employee_job_impact }}</td>
+                                      <td align="center">{{ rtw.absence_employee_bae_support }}</td>
+                                      <td align="center">{{ rtw.absence_occupational_health_referral }}</td>
+                                      <td align="center">{{ rtw.absence_bae_procedures_followed }}</td>                                    
+                                      <td align="center">{{ rtw.form_completed_display }}</td>                                    
+
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>                    
+                    <div ng-if="data.RTW.length == 0" style="padding:10px;">                    
+                        ${No records to display}
+                    </div>
+                  </div>
+                  <div ng-show="data.showAR" class="clearfix" aria-hidden="false" style="">
+                      <div class="project-report-table-wrpr">
+                          <table class="table table-bordered table-striped project-report-table hidden-xs print-visible">
+                              <tbody>
+                                  <tr>
+                                      <th width="10%">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'number_display'; sortReverse = !sortReverse">AR Reference</a>
+                                          <span ng-show="sortType == 'number_display' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'number_display' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="15%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'hearing_manager_display'; sortReverse = !sortReverse">Hearing Manager</a>
+                                          <span ng-show="sortType == 'hearing_manager_display' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'hearing_manager_display' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="15%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'tu_representative_display'; sortReverse = !sortReverse">TU Representative</a>
+                                          <span ng-show="sortType == 'tu_representative_display' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'tu_representative_display' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="10%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_current_warning_level'; sortReverse = !sortReverse">Current Warning</a>
+                                          <span ng-show="sortType == 'review_current_warning_level' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_current_warning_level' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                    
+                                      <th width="15%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_trigger_display'; sortReverse = !sortReverse">Trigger Type</a>
+                                          <span ng-show="sortType == 'review_trigger_display' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_trigger_display' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                    
+                                      <th width="10%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_date'; sortReverse = !sortReverse">Review Date</a>
+                                          <span ng-show="sortType == 'review_date' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_date' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_occupational_health_referral'; sortReverse = !sortReverse">OCH Referral?</a>
+                                          <span ng-show="sortType == 'review_occupational_health_referral' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_occupational_health_referral' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>
+                                      <th width="15%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_issued_warning_level'; sortReverse = !sortReverse">Review Warning</a>
+                                          <span ng-show="sortType == 'review_issued_warning_level' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_issued_warning_level' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                    
+                                      <th width="5%" class="center">
+                                          <a href="javascript:void(0)" ng-click="sortType = 'review_right_of_appeal_offered'; sortReverse = !sortReverse">ROA Offered?</a>
+                                          <span ng-show="sortType == 'review_right_of_appeal_offered' && !sortReverse" class="fa fa-caret-down"></span>
+                                          <span ng-show="sortType == 'review_right_of_appeal_offered' && sortReverse" class="fa fa-caret-up"></span>
+                                      </th>                                          
+
+                                  </tr>
+
+                                  <tr ng-repeat='ar in data.AR | orderBy:sortType:sortReverse | filter:searchProjects'>
+                                 	  <td>
+                                          <button id="tooltip-button-{{ar.sys_id}}" type="button" class="cd-tooltip viewBtn btn btn-default icon-info btn-icon" uib-popover-template="'ar-tooltip'" popover-placement='bottom-left' popover-trigger='outsideClick' popover-is-open='ar.isInfoPopoverOpen' aria-haspopup='true' aria-expanded="{{ar.isInfoPopoverOpen}}" data-container="body"><span class="sr-only">${Information}</span></button>                                                                                                                           
+                                          <a href="javascript:void(0)">{{ ar.number_display }}</a>
+                                      </td>                                    
+                                      <td align="center">{{ ar.hearing_manager_display }}</td>                                    
+                                      <td align="center">{{ ar.tu_representative_display }}</td>
+                                      <td align="center">{{ ar.review_current_warning_level }}</td>                                    
+                                      <td align="center">{{ ar.review_trigger_display }}</td>                                    
+                                      <td align="center">{{ ar.review_date_display }}</td>  
+                                      <td align="center">{{ ar.review_occupational_health_referral }}</td>
+                                      <td align="center">{{ ar.review_issued_warning_level }}</td>                                    
+                                      <td align="center">{{ ar.review_right_of_appeal_offered }}</td>                                    
+
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div ng-if="data.AR.length == 0" style="padding:10px;">
+                        ${No records to display}
+                      </div>                    
+                  </div>                  
+                </div>
+            </div>          
+        </form>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

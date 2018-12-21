@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>HR Portal - RTW Review Escalation Reminder Creation</name>
+        <run_as display_value="Robin Burrows">ae49343c6f7b81006b8746916e3ee4b9</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2018-11-15 15:26:22</run_start>
+        <run_time>1970-01-01 07:00:00</run_time>
+        <run_type>weekly</run_type>
+        <script><![CDATA[// Create escalation 6 days after absence end date if still in open/wip state
+var chkTime = new GlideDateTime();  
+chkTime.addDaysLocalTime(-6);
+chkDate = chkTime.getDate();
+
+//Process all open/wip RTW records where absence end date = 6 days old
+var recObj = new GlideRecord('x_baes2_hr_portal_rtw_request');  
+recObj.addQuery('state', 'IN', '1,2,-5');
+recObj.addQuery('absence_end', '=', chkDate);  
+recObj.query();  
+while(recObj.next()){  
+	//gs.info("HR RTW Review escaltion for " + recObj.number + ' - ' + recObj.short_description);
+	gs.eventQueue("x_baes2_hr_portal.rtw.review.escalation", recObj, recObj.sys_id, recObj.short_description);
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-15 15:27:53</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>01d685addb792300e9c39334ca961938</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>HR Portal - RTW Review Escalation Reminder Creation</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sysauto_script_01d685addb792300e9c39334ca961938</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-11-15 15:51:21</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

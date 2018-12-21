@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>rtw-tooltip</id>
+        <sp_widget display_value="HR Portal - Absence Overview">4f3681d6db42eb00561fb29a68961940</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-12-17 11:55:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9f494dfbdbd2e740561fb29a68961901</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>rtw-tooltip</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_9f494dfbdbd2e740561fb29a68961901</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-17 14:53:52</sys_updated_on>
+        <template><![CDATA[<div class="tooltip-popover" id="tooltip-popover-{{::rtw.sys_id}}">
+  <ul class="color-items">
+    <li class="color-item">
+      <div class="color-label">Employee</div>
+      <div class="color-label pull-right">{{::rtw.employee_display}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Manager</div>
+      <div class="color-label pull-right">{{::rtw.line_manager_display}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Start</div>
+      <div class="color-label pull-right">{{::rtw.absence_start_display}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence End</div>
+      <div class="color-label pull-right">{{::rtw.absence_end_display}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Expected Return</div>
+      <div class="color-label pull-right">{{::rtw.absence_expected_return}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Absence Reason Type</div>
+      <div class="color-label pull-right">{{::rtw.absence_reason_type}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Absence Reason</div>
+      <div class="color-label pull-right">{{::rtw.absence_reason}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Doctor's Visit?</div>
+      <div class="color-label pull-right">{{::rtw.absence_doctors_visit}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Doctor's Visit Medication</div>
+      <div class="color-label pull-right">{{::rtw.absence_doctors_visit_medication}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Employee Actions</div>
+      <div class="color-label pull-right">{{::rtw.absence_employee_actions}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Accident At Work?</div>
+      <div class="color-label pull-right">{{::rtw.absence_accident_at_work}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Accident Reported Correctly?</div>
+      <div class="color-label pull-right">{{::rtw.absence_accident_reported_correctly}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Job Impact?</div>
+      <div class="color-label pull-right">{{::rtw.absence_employee_job_impact}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">BAE Support?</div>
+      <div class="color-label pull-right">{{::rtw.absence_employee_bae_support}}</div>
+    </li>     
+    <li class="color-item">
+      <div class="color-label">Occupational Health Referral?</div>
+      <div class="color-label pull-right">{{::rtw.absence_occupational_health_referral}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">BAE Procedures Followed</div>
+      <div class="color-label pull-right">{{::rtw.absence_bae_procedures_followed}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Form Completed</div>
+      <div class="color-label pull-right">{{::rtw.form_completed_display}}</div>
+    </li>    
+    <li class="color-item">
+      <div class="color-label">Last Updated On</div>
+      <div class="color-label pull-right">{{::rtw.updated_on}}</div>
+    </li>
+    <li class="color-item">
+      <div class="color-label">Last Updated By</div>
+      <div class="color-label pull-right" style="padding-top:1px;">{{::rtw.updated_by}}</div>
+    </li>     
+  </ul>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

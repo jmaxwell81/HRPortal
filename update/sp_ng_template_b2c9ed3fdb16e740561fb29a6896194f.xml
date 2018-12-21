@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>ar-tooltipXXX</id>
+        <sp_widget display_value="HR Portal - Absence Overview">4f3681d6db42eb00561fb29a68961940</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-12-17 14:16:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b2c9ed3fdb16e740561fb29a6896194f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ar-tooltipXXX</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_ng_template_b2c9ed3fdb16e740561fb29a6896194f</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-17 14:16:51</sys_updated_on>
+        <template><![CDATA[<div class="tooltip-popover" id="tooltip-popover-{{ar.sys_id}}">
+  <ul class="color-items">
+    <li class="color-item" ng-repeat="field in data.arfields_array">
+      <div class="color-label">{{ar[field].label}}</div>
+      <div class="color-label pull-right">{{ar[field].display_value}}</div>
+    </li>
+  </ul>  
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

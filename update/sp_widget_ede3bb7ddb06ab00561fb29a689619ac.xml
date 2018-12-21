@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope, spUtil) {
+  var c = this;
+	this.KEYS = {
+						DOWN:40,
+						LEFT:37,
+						RIGHT:39,
+						TAB:9,
+						UP:38
+					 };
+
+	$scope.show_rtw_updates = true;
+	$scope.show_rtw_interviews = false;
+	$scope.show_ar_interviews = false;
+	
+	$scope.changePanel = function(panel_name) {
+		// RTW Updates Tab Selected
+		if (panel_name == 'rtw_updates') {
+			$scope.show_rtw_updates = true;
+			$scope.show_rtw_interviews = false;
+			$scope.show_ar_interviews = false;
+		} 
+
+		// RTW Interviews Tab Selected		
+		if (panel_name == 'rtw_interviews') {
+			$scope.show_rtw_updates = false;
+			$scope.show_rtw_interviews = true;
+			$scope.show_ar_interviews = false;
+		}
+
+		// AR Interviews Tab Selected		
+		if (panel_name == 'ar_interviews') {
+			$scope.show_rtw_updates = false;
+			$scope.show_rtw_interviews = false;
+			$scope.show_ar_interviews = true;
+		}		
+	};
+	if (c.data.showApprovals)
+		spUtil.recordWatch($scope, "sysapproval_approver", "state=requested^approverIN" +  $scope.data.approvals.myApprovals.toString());
+	
+	$scope.switchTab = function($event, tab) {
+		var key = null;
+		if (event.keyCode === c.KEYS.LEFT || event.keyCode === c.KEYS.UP)
+			key = c.KEYS.LEFT;
+		else if (event.keyCode === c.KEYS.RIGHT || event.keyCode === c.KEYS.DOWN)
+			key = c.KEYS.RIGHT;
+		else if (event.keyCode === c.KEYS.TAB) {
+			return;
+		}
+		if (key === null)
+			return;
+	
+		$scope.show_request = !$scope.show_request;
+		if ($scope.show_request)
+			$('a.request').focus();
+		else
+			$('a.approval').focus();
+		// RTW Updates Tab Selected
+		if (tab == 'rtw_updates') {
+			$('a.rtw_updates').focus();			
+		} 
+
+		// RTW Interviews Tab Selected		
+		if (tab == 'rtw_interviews') {
+			$('a.rtw_interviews').focus();
+		}
+
+		// AR Interviews Tab Selected		
+		if (tab == 'ar_interviews') {
+			$('a.ar_interviews').focus();
+		}		
+	}
+	
+	$scope.showTooltip = function(headingID, id) {
+		// Hide Any Open Tooltips
+		jQuery(".tooltip").tooltip("hide");
+
+		// Tooltip
+		$scope.server.get({
+			action: "getTooltip_" + headingID,
+			itemID: id
+		}).then(function(response) {
+			var tt_target = '#' + headingID + id;
+			jQuery(tt_target).attr('data-title', response.data.tooltip);
+			jQuery(tt_target).tooltip('show');
+		});
+
+	};	
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.sp-approval &gt; .approval-rows {&#13;
+  padding: 10px;&#13;
+}&#13;
+&#13;
+.panels-container {&#13;
+  height : 250px;&#13;
+  /*overflow-y : auto;*/&#13;
+}&#13;
+&#13;
+.panel {&#13;
+  padding-bottom:0;&#13;
+}&#13;
+&#13;
+.pad-bottom {&#13;
+  padding-bottom : 0px;&#13;
+}&#13;
+&#13;
+.panel-default &gt; .panel-heading {&#13;
+   background-color: $primary;  &#13;
+}&#13;
+&#13;
+.sc-tab-a {&#13;
+ 	 color: $primary!important;&#13;
+	 border: 0;&#13;
+   border-bottom: 3px solid $primary;&#13;
+   border-bottom: 3px solid #ffffff;  &#13;
+   background-color: transparent;  &#13;
+   background-color: #ffffff!important;&#13;
+}&#13;
+&#13;
+.sc-tab-a:hover, .sc-tab-a:active, .sc-tab-a:focus {&#13;
+   color: #ffffff; &#13;
+   color: $primary;&#13;
+   background-color: $primary;&#13;
+   background-color: #ffffff!important;  &#13;
+   border-color: $primary;&#13;
+   border-color: #ffffff!important;  &#13;
+}&#13;
+&#13;
+.nav &gt; li &gt; a {&#13;
+   color: #ffffff;&#13;
+   color: $primary;  &#13;
+   background-color: #eeeeee;&#13;
+}&#13;
+&#13;
+.nav &gt; li &gt; a:hover {&#13;
+   color: $primary;&#13;
+   background-color: #dddddd;&#13;
+   border-color: #dddddd #dddddd #dddddd;&#13;
+}&#13;
+&#13;
+.nav &gt; li.item {&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.list-group-item {&#13;
+  border-bottom-width: 0 !important;&#13;
+}&#13;
+&#13;
+.tooltip-popover{&#13;
+  color: $color-black;&#13;
+  padding: 6px 0;&#13;
+  .popover-title{&#13;
+    font-size: 18px;&#13;
+    margin-bottom: 25px;&#13;
+    border: none;&#13;
+    padding:0 21px;&#13;
+  }&#13;
+  .color-items{&#13;
+    list-style: none;&#13;
+    padding:0;&#13;
+    max-height: calc(100vh - 147px);&#13;
+    overflow-y: auto;&#13;
+    padding: 0 5px;&#13;
+    margin-bottom: 0px;&#13;
+    .color-item{&#13;
+      border-bottom: 1px solid $color-lighter;&#13;
+      margin-bottom: 5px;&#13;
+      padding-bottom: 5px;&#13;
+      .color-label{&#13;
+        display: inline-block;&#13;
+        font-size: 12px;&#13;
+        margin-right: 5px;&#13;
+      }&#13;
+      .color-box{&#13;
+        width: 24px;&#13;
+        height: 24px;&#13;
+        border: 1px solid $color-light;&#13;
+        border-radius: 3px;&#13;
+        display: inline-block;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.viewBtn {&#13;
+  border:none!important;&#13;
+  padding:0px!important;&#13;
+  outline:none!important;  &#13;
+  height: 20px!important;&#13;
+  width: 20px!important;&#13;
+  vertical-align:top!important;&#13;
+  text-align:left!important;&#13;
+}&#13;
+&#13;
+.btn-default {&#13;
+	color: #333;&#13;
+	background-color: #fff;&#13;
+	border-color: #ccc;&#13;
+}&#13;
+.btn-default:focus, .btn-default.focus {&#13;
+	color: #333;&#13;
+	/* background-color: #e6e6e6; */&#13;
+	border-color: #8c8c8c;&#13;
+}&#13;
+.btn-default:hover {&#13;
+	color: #333;&#13;
+	/* background-color: #e6e6e6; */&#13;
+	border-color: #adadad;&#13;
+}&#13;
+.btn-default:active, .btn-default.active, .open &gt; .btn-default.dropdown-toggle {&#13;
+	color: #333;&#13;
+	background-color: #e6e6e6;&#13;
+	border-color: #adadad;&#13;
+}&#13;
+.btn-default:active:hover, .btn-default:active:focus, .btn-default.focus:active, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open &gt; .btn-default.dropdown-toggle:hover, .open &gt; .btn-default.dropdown-toggle:focus, .open &gt; .btn-default.dropdown-toggle.focus {&#13;
+	color: #333;&#13;
+	background-color: #d4d4d4;&#13;
+	border-color: #8c8c8c;&#13;
+}&#13;
+.btn-default:active, .btn-default.active, .open &gt; .btn-default.dropdown-toggle {&#13;
+	background-image: none;&#13;
+}&#13;
+.btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default.focus {&#13;
+	background-color: #fff;&#13;
+	border-color: #ccc;&#13;
+}&#13;
+.btn-default .badge {&#13;
+	color: #fff;&#13;
+	background-color: #333;&#13;
+}&#13;
+&#13;
+.icon-info:before {&#13;
+    vertical-align: baseline;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,color</field_list>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>HR Portal - RTW / AR Tabbed</name>
+        <option_schema>[{"name":"max_number","label":"Max number","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	data.tooltip = "";
+	
+	if (input) {
+		
+		// Client Request For Tooltip - RTW Updates
+		if (input && input.action === "getTooltip_RTWU") {
+			var gr = new GlideRecord("x_baes2_hr_portal_rtw_request");
+			if (gr.get(input.itemID)) {				
+				display_field = gr.getDisplayValue("short_description");		
+				absence_start = gr.getDisplayValue('absence_start');
+				absence_expected_return = gr.getDisplayValue('absence_expected_return');
+				absence_reason_type = gr.getDisplayValue('absence_reason_type') || '-None-';
+				absence_reason = gr.getDisplayValue('absence_reason');				
+				updated_on = gr.getDisplayValue("sys_updated_on");
+				updated_by = gr.getDisplayValue("sys_updated_by");				
+				data.tooltip = '<div class="tip-header">' + display_field + '</br><medium class="text-muted"><span class="glyphicon glyphicon-time " />&nbsp;' + updated_on + ' • ' +   updated_by + '</medium>' +  '</div><table width="100%"><tbody>';
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence start</td><td width='50%' class='tip-col'>" + absence_start + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence expected return</td><td width='50%' class='tip-col'>" + absence_expected_return + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence type</td><td width='50%' class='tip-col'>" + absence_reason_type + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence reason</td><td width='50%' class='tip-col'>" + absence_reason + "</td></tr>";				
+				data.tooltip += "</tbody></table>";				
+			}
+			return;
+		}		
+		
+		// Client Request For Tooltip - RTW Interviews
+		if (input && input.action === "getTooltip_RTWI") {
+			var gr = new GlideRecord("x_baes2_hr_portal_rtw_request");
+			if (gr.get(input.itemID)) {				
+				display_field = gr.getDisplayValue("short_description");		
+				absence_start = gr.getDisplayValue('absence_start');
+				absence_end = gr.getDisplayValue('absence_end');				
+				absence_expected_return = gr.getDisplayValue('absence_expected_return');
+				absence_reason_type = gr.getDisplayValue('absence_reason_type');
+				absence_reason = gr.getDisplayValue('absence_reason');
+				absence_doctors_visit = gr.getDisplayValue('absence_doctors_visit') || '-None-';
+				absence_doctors_visit_medication = gr.getDisplayValue('absence_doctors_visit_medication') || '';				
+				absence_employee_actions = gr.getDisplayValue('absence_employee_actions');		
+				absence_accident_at_work = gr.getDisplayValue('absence_accident_at_work') || '-None-';
+				absence_accident_reported_correctly = gr.getDisplayValue('absence_accident_reported_correctly') || '-None-';			
+				absence_employee_job_impact = gr.getDisplayValue('absence_employee_job_impact') || '-None-';
+				absence_employee_bae_support = gr.getDisplayValue('absence_employee_bae_support') || '-None-';
+				absence_occupational_health_referral = gr.getDisplayValue('absence_occupational_health_referral') || '-None-';
+				absence_bae_procedures_followed = gr.getDisplayValue('absence_bae_procedures_followed') || '-None-';		
+				form_completed_display = gr.getDisplayValue('form_completed');				
+				updated_on = gr.getDisplayValue("sys_updated_on");
+				updated_by = gr.getDisplayValue("sys_updated_by");				
+				data.tooltip = '<div class="tip-header">' + display_field + '</br><medium class="text-muted"><span class="glyphicon glyphicon-time " />&nbsp;' + updated_on + ' • ' +   updated_by + '</medium>' +  '</div><table width="100%"><tbody>';
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence start</td><td width='50%' class='tip-col'>" + absence_start + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence end</td><td width='50%' class='tip-col'>" + absence_end + "</td></tr>";				
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence expected return</td><td width='50%' class='tip-col'>" + absence_expected_return + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence type</td><td width='50%' class='tip-col'>" + absence_reason_type + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Absence reason</td><td width='50%' class='tip-col'>" + absence_reason + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Doctor's visit?</td><td width='50%' class='tip-col'>" + absence_doctors_visit + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Doctor's visit medication</td><td width='50%' class='tip-col'>" + absence_doctors_visit_medication + "</td></tr>";				
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Employee actions</td><td width='50%' class='tip-col'>" + absence_employee_actions + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Work accident?</td><td width='50%' class='tip-col'>" + absence_accident_at_work + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Work accident reported correctly?</td><td width='50%' class='tip-col'>" + absence_accident_reported_correctly + "</td></tr>";			
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Job impact?</td><td width='50%' class='tip-col'>" + absence_employee_job_impact + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>BAE support?</td><td width='50%' class='tip-col'>" + absence_employee_bae_support + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>OCH Referral?</td><td width='50%' class='tip-col'>" + absence_occupational_health_referral + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>BAE procedures?</td><td width='50%' class='tip-col'>" + absence_bae_procedures_followed + "</td></tr>";	
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Form completed</td><td width='50%' class='tip-col'>" + form_completed_display + "</td></tr>";			
+				data.tooltip += "</tbody></table>";				
+			}
+			return;
+		}		
+		
+		// Client Request For Tooltip - AR Interviews
+		if (input && input.action === "getTooltip_ARI") {
+			var gr = new GlideRecord("x_baes2_hr_portal_ar_request");
+			if (gr.get(input.itemID)) {				
+				display_field = gr.getDisplayValue("short_description");				
+				review_date = gr.getValue('review_date');
+				review_trigger = gr.getDisplayValue('review_trigger') || '-None-';		
+				review_date_display = gr.getDisplayValue('review_date');		
+				hearing_manager = gr.getDisplayValue('hearing_manager');
+				tu_representative = gr.getDisplayValue('tu_representative');
+				review_current_warning_level = gr.getDisplayValue('review_current_warning_level') || '-None-';	
+				review_summary = gr.getDisplayValue('review_summary');
+				review_mitigating_circumstances = gr.getDisplayValue('review_mitigating_circumstances') || '';	
+				review_occupational_health_referral = gr.getDisplayValue('review_occupational_health_referral') || '-None-';
+				review_issued_warning_level = gr.getDisplayValue('review_issued_warning_level') || '-None-';	
+				review_right_of_appeal_offered = gr.getDisplayValue('review_right_of_appeal_offered') || '-None-';								
+				updated_on = gr.getDisplayValue("sys_updated_on");
+				updated_by = gr.getDisplayValue("sys_updated_by");				
+				data.tooltip = '<div class="tip-header">' + display_field + '</br><medium class="text-muted"><span class="glyphicon glyphicon-time " />&nbsp;' + updated_on + ' • ' +   updated_by + '</medium>' +  '</div><table width="100%"><tbody>';
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Hearing manager</td><td width='50%' class='tip-col'>" + hearing_manager + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>TU representative</td><td width='50%' class='tip-col'>" + tu_representative + "</td></tr>";			
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Current warning level</td><td width='50%' class='tip-col'>" + review_current_warning_level + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Trigger type</td><td width='50%' class='tip-col'>" + review_trigger + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Hearing summary</td><td width='50%' class='tip-col'>" + review_summary + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Mitigating circumstances</td><td width='50%' class='tip-col'>" + review_mitigating_circumstances + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>OCH Referral?</td><td width='50%' class='tip-col'>" + review_occupational_health_referral + "</td></tr>";		
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Issued warning level</td><td width='50%' class='tip-col'>" + review_issued_warning_level + "</td></tr>";		
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Right of appeal offered?</td><td width='50%' class='tip-col'>" + review_right_of_appeal_offered + "</td></tr>";
+				data.tooltip += "<tr class='tip-row'><td width='50%' class='tip-col'>Review date</td><td width='50%' class='tip-col'>" + review_date_display + "</td></tr>";			
+				data.tooltip += "</tbody></table>";				
+			}
+			return;
+		}		
+		
+	} else {
+		
+		var t = data;
+  
+		// RTW Updates - Initial load
+		var z = new GlideRecord('x_baes2_hr_portal_rtw_request');
+		z.addQuery('state', 'IN', '1,2,-5');
+		z.addNotNullQuery('absence_start');
+		z.addNullQuery('absence_end');			
+		z.addEncodedQuery('line_manager=javascript:gs.getUserID()');		
+		z.orderByDesc('number');
+		z.setLimit(options.max_number || 5);
+		z.query();
+		t.rtw_updates_rowCount = z.getRowCount();
+		t.rtw_updates = [];
+
+		while (z.next()) {
+		  var a = {};
+		  a.sys_id = z.getValue('sys_id');
+		  a.number = z.getDisplayValue('number');				
+		  a.short_description = z.getValue('short_description');			
+		  a.employee = z.getDisplayValue('employee');
+		  a.employeeId = z.getValue('employee');			
+		  a.line_manager = z.getDisplayValue('line_manager');				
+		  a.absence_start = z.getDisplayValue('absence_start');
+		  a.absence_end = z.getDisplayValue('absence_end');			
+		  a.absence_expected_return = z.getDisplayValue("absence_expected_return");		
+		  a.absence_reason_type = z.getDisplayValue('absence_reason_type');
+		  a.absence_reason = z.getDisplayValue('absence_reason');			
+		  a.absence_doctors_visit = z.getDisplayValue('absence_doctors_visit');
+		  a.absence_doctors_visit_medication = z.getDisplayValue('absence_doctors_visit_medication');  
+		  a.absence_employee_actions = z.getDisplayValue('absence_employee_actions');
+		  a.absence_accident_at_work = z.getDisplayValue('absence_accident_at_work');
+		  a.absence_accident_reported_correctly = z.getDisplayValue('absence_accident_reported_correctly');
+		  a.absence_employee_job_impact = z.getDisplayValue('absence_employee_job_impact');
+		  a.absence_employee_bae_support = z.getDisplayValue('absence_employee_bae_support');
+		  a.absence_occupational_health_referral = z.getDisplayValue('absence_occupational_health_referral');
+		  a.absence_bae_procedures_followed = z.getDisplayValue('absence_bae_procedures_followed');
+		  a.form_completed_display = z.getDisplayValue('form_completed_display');
+		  a.updated_on = z.getDisplayValue("sys_updated_on");			
+		  a.updated_by = z.getDisplayValue("sys_updated_by");
+		  a.history_url = '?id=hr_absence_overview&sysparm_user=' + a.employeeId;
+		  t.rtw_updates.push(a);
+		}
+		t.rtw_updates_hasAny = t.rtw_updates.length > 0 ? true : false;
+		
+		// RTW Interviews - Initial load
+		var z = new GlideRecord('x_baes2_hr_portal_rtw_request');
+		z.addQuery('state', 'IN', '1,2,-5');
+		z.addNotNullQuery('absence_start');
+		z.addNotNullQuery('absence_end');			
+		z.addEncodedQuery('line_manager=javascript:gs.getUserID()');		
+		z.orderByDesc('number');
+		z.setLimit(options.max_number || 5);
+		z.query();
+		t.rtw_interviews_rowCount = z.getRowCount();
+		t.rtw_interviews = [];
+
+		while (z.next()) {
+		  var a = {};
+		  a.sys_id = z.getValue('sys_id');
+		  a.number = z.getDisplayValue('number');				
+		  a.short_description = z.getValue('short_description');			
+		  a.employee = z.getDisplayValue('employee');
+		  a.employeeId = z.getValue('employee');			
+		  a.line_manager = z.getDisplayValue('line_manager');				
+		  a.absence_start = z.getDisplayValue('absence_start');
+		  a.absence_end = z.getDisplayValue('absence_end');			
+		  a.absence_expected_return = z.getDisplayValue("absence_expected_return");		
+		  a.absence_reason_type = z.getDisplayValue('absence_reason_type');
+		  a.absence_reason = z.getDisplayValue('absence_reason');			
+		  a.absence_doctors_visit = z.getDisplayValue('absence_doctors_visit');
+		  a.absence_doctors_visit_medication = z.getDisplayValue('absence_doctors_visit_medication');  
+		  a.absence_employee_actions = z.getDisplayValue('absence_employee_actions');
+		  a.absence_accident_at_work = z.getDisplayValue('absence_accident_at_work');
+		  a.absence_accident_reported_correctly = z.getDisplayValue('absence_accident_reported_correctly');
+		  a.absence_employee_job_impact = z.getDisplayValue('absence_employee_job_impact');
+		  a.absence_employee_bae_support = z.getDisplayValue('absence_employee_bae_support');
+		  a.absence_occupational_health_referral = z.getDisplayValue('absence_occupational_health_referral');
+		  a.absence_bae_procedures_followed = z.getDisplayValue('absence_bae_procedures_followed');
+		  a.form_completed_display = z.getDisplayValue('form_completed_display');
+		  a.updated_on = z.getDisplayValue("sys_updated_on");			
+		  a.updated_by = z.getDisplayValue("sys_updated_by");
+		  a.history_url = '?id=hr_absence_overview&sysparm_user=' + a.employeeId;			
+		  t.rtw_interviews.push(a);
+		}
+		t.rtw_interviews_hasAny = t.rtw_interviews.length > 0 ? true : false;
+		
+		// AR Interviews - Initial load
+		var z = new GlideRecord('x_baes2_hr_portal_ar_request');
+		z.addQuery('state', 'IN', '1,2,-5');
+		z.addNullQuery('review_date');			
+		z.addEncodedQuery('line_manager=javascript:gs.getUserID()');		
+		z.orderByDesc('number');
+		z.setLimit(options.max_number || 5);
+		z.query();
+		t.ar_interviews_rowCount = z.getRowCount();
+		t.ar_interviews = [];
+
+		while (z.next()) {
+		  var a = {};
+		  a.sys_id = z.getValue('sys_id');
+		  a.number = z.getDisplayValue('number');				
+		  a.short_description = z.getValue('short_description');			
+		  a.employee = z.getDisplayValue('employee');
+		  a.employeeId = z.getValue('employee');			
+		  a.line_manager = z.getDisplayValue('line_manager');
+		  a.hearing_manager = z.getDisplayValue('hearing_manager');
+		  a.tu_representative = z.getDisplayValue('tu_representative');
+		  a.review_trigger = z.getDisplayValue('review_trigger');
+		  a.review_date = z.getValue('review_date');
+		  a.review_date_display = z.getDisplayValue('review_date');			
+		  a.review_current_warning_level = z.getDisplayValue('review_current_warning_level');		
+          a.review_summary = z.getDisplayValue('review_summary');
+		  a.review_mitigating_circumstances = z.getDisplayValue('review_mitigating_circumstances');
+		  a.review_occupational_health_referral = z.getDisplayValue('review_occupational_health_referral_reason');
+		  a.review_occupational_health_referral = z.getDisplayValue('review_occupational_health_referral_reason');			
+		  a.review_issued_warning_level = z.getDisplayValue('review_issued_warning_level');
+		  a.review_issued_warning_level_reason = z.getDisplayValue('review_issued_warning_level_reason');			
+		  a.review_right_of_appeal_offered = z.getDisplayValue('review_right_of_appeal_offered');
+		  a.updated_on = z.getDisplayValue("sys_updated_on");			
+		  a.updated_by = z.getDisplayValue("sys_updated_by");
+		  a.history_url = '?id=hr_absence_overview&sysparm_user=' + a.employeeId;			
+		  t.ar_interviews.push(a);
+		}
+		t.ar_interviews_hasAny = t.ar_interviews.length > 0 ? true : false;		
+		
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
+        <sys_created_on>2018-11-29 08:56:42</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ede3bb7ddb06ab00561fb29a689619ac</sys_id>
+        <sys_mod_count>184</sys_mod_count>
+        <sys_name>HR Portal - RTW / AR Tabbed</sys_name>
+        <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
+        <sys_update_name>sp_widget_ede3bb7ddb06ab00561fb29a689619ac</sys_update_name>
+        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
+        <sys_updated_on>2018-12-06 14:24:26</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b">
+ 	<div class="panel-heading pad-bottom">
+    	<ul class="nav nav-tabs" style="border-bottom : 0px" role="tablist">
+      	<li class="item" role="tab" tabindex="-1" ng-click="changePanel('rtw_updates')" ng-keydown="switchTab($event, 'rtw_updates')">
+        	<a ng-class="{'sc-tab-a' : show_rtw_updates}" href="javascript:void(0)" class="rtw_updates">
+          	<span class="pull-left"> ${Return To Work Updates} </span>
+            <span class="label label-as-badge label-primary" style="margin-top:2px;margin-left:5px;">{{::data.rtw_updates_rowCount}}</span>              
+          </a>
+        </li>  
+        <li class="item" role="tab" tabindex="-1" ng-click="changePanel('rtw_interviews')" ng-keydown="switchTab($event, 'rtw_interviews')">
+        	<a ng-class="{'sc-tab-a' : show_rtw_interviews}" href="javascript:void(0)" class="rtw_interviews">
+          	<span class="pull-left"> ${Return To Work Interviews} </span>
+            <span class="label label-as-badge label-primary" style="margin-top:2px;margin-left:5px;">{{::data.rtw_interviews_rowCount}}</span>              
+          </a>
+        </li>
+        <li class="item" role="tab" tabindex="-1" ng-click="changePanel('ar_interviews')" ng-keydown="switchTab($event, 'ar_interviews')">
+        	<a ng-class="{'sc-tab-a' : show_ar_interviews}" href="javascript:void(0)" class="ar_interviews">
+          	<span class="pull-left" > ${Absence Reviews} </span>
+            <span class="label label-as-badge label-primary" style="margin-top:2px;margin-left:5px;">{{::data.ar_interviews_rowCount}}</span>
+          </a>
+        </li>           
+    	</ul>
+  </div>
+  
+    <!-- RTW Updates -->
+  <div ng-if="show_rtw_updates && c.data.rtw_updates_hasAny == false " class="panel-body panels-container">
+ 		${ You do not have any Return To Work Updates at this time } 
+  </div>
+ 	
+  <div ng-if = "show_rtw_updates && c.data.rtw_updates_hasAny == true" class="panels-container list-group">
+    	<div class="list-group-item row" ng-repeat="item in c.data.rtw_updates" style="margin:0px" >
+      		<div class="col-xs-8" style="">
+            <div style="float:left;">
+              <!--<span class="fa fa-info-circle" style="cursor:pointer;" id="RTWU{{::item.sys_id}}" data-container="#the-basics" data-placement="right" data-html="true" data-title="<div>loading ..</div>" data-trigger="manual" ng-click=showTooltip('RTWU',item.sys_id)>&nbsp;</span>-->        
+      		  <button id="tooltip-button-{{::item.sys_id}}" type="button" class="cd-tooltip viewBtn btn btn-default icon-info btn-icon" uib-popover-template="'RTWU-tooltip'" popover-placement='bottom-left' popover-trigger='outsideClick' popover-is-open='item.isInfoPopoverOpen' aria-haspopup='true' aria-expanded="{{item.isInfoPopoverOpen}}" data-container="body"><span class="sr-only">${Information}</span></button>                                          
+            </div>              
+            <div>
+			 <a href="?id=sc_cat_item&sys_id=6628adb2db75e300e9c39334ca96190b&sysparm_rtw={{::item.sys_id}}" title="Click to update Return To Work">{{::item.employee}}</a>              
+            </div>
+            <small class="text-muted">
+            	<span> {{::item.number}}</span>
+                <span class="views pad-right"> • </span>
+            	<span> Absence Started: {{::item.absence_start}}</span>              
+            </small>
+          </div>
+          <div class="col-xs-3">
+              <glyph sn-char="calendar" />              
+              <sn-day-ago date="::item.updated_on"/>
+          </div>
+          <div class="col-xs-1">
+              <span class="pull-right"><a class="btn-xs btn-primary pull-right" title="View absence history for {{::item.employee}} (new window)" href="{{::item.history_url}}" target="_blank">History</a></span>
+          </div>          
+      </div>
+  </div>
+  
+    <!-- RTW Interviews -->
+  <div ng-if="show_rtw_interviews && c.data.rtw_interviews_hasAny == false " class="panel-body panels-container">
+ 		${ You do not have any Return To Work Interviews at this time } 
+  </div>
+ 	
+  <div ng-if = "show_rtw_interviews && c.data.rtw_interviews_hasAny == true" class="panels-container list-group">
+    	<div class="list-group-item row" ng-repeat="item in c.data.rtw_interviews" style="margin:0px" >
+      		<div class="col-xs-8" style="">
+            <div style="float:left;">
+              <!--<span class="fa fa-info-circle" style="cursor:pointer;" id="RTWI{{::item.sys_id}}" data-container="#the-basics" data-placement="right" data-html="true" data-title="<div>loading ..</div>" data-trigger="manual" ng-click=showTooltip('RTWI',item.sys_id)>&nbsp;</span>-->        
+      		  <button id="tooltip-button-{{::item.sys_id}}" type="button" class="cd-tooltip viewBtn btn btn-default icon-info btn-icon" uib-popover-template="'RTWI-tooltip'" popover-placement='bottom-left' popover-trigger='outsideClick' popover-is-open='item.isInfoPopoverOpen' aria-haspopup='true' aria-expanded="{{item.isInfoPopoverOpen}}" data-container="body"><span class="sr-only">${Information}</span></button>                            
+            </div>              
+            <div>
+			 <a href="?id=sc_cat_item&sys_id=52040670dbfda300e9c39334ca9619d5&sysparm_rtw={{::item.sys_id}}" title="Click to complete Return To Work">{{::item.employee}}</a>              
+            </div>
+            <small class="text-muted">
+            	<span> {{::item.number}}</span>
+                <span class="views pad-right"> • </span>
+            	<span> Absence Period: {{::item.absence_start}}</span>
+            	<span> - {{::item.absence_end}}</span>              
+            </small>
+          </div>
+          <div class="col-xs-3">
+              <glyph sn-char="calendar" />
+              <sn-day-ago date="::item.updated_on"/>
+          </div>
+          <div class="col-xs-1">
+              <span class="pull-right"><a class="btn-xs btn-primary pull-right" title="View absence history for {{::item.employee}} (new window)" href="{{::item.history_url}}" target="_blank">History</a></span>
+          </div>          
+      </div>
+  </div>  
+  
+    <!-- AR Interviews -->
+  <div ng-if="show_ar_interviews && c.data.ar_interviews_hasAny == false " class="panel-body panels-container">
+ 		${ You do not have any Attendence Reviews at this time } 
+  </div>
+ 	
+  <div ng-if = "show_ar_interviews && c.data.ar_interviews_hasAny == true" class="panels-container list-group">
+    	<div class="list-group-item row" ng-repeat="item in c.data.ar_interviews" style="margin:0px" >
+      		<div class="col-xs-8" style="">
+            <div style="float:left;">
+              <!-- <span class="fa fa-info-circle" style="cursor:pointer;" id="ARI{{::item.sys_id}}" data-container="#the-basics" data-placement="right" data-html="true" data-title="<div>loading ..</div>" data-trigger="manual" ng-click=showTooltip('ARI',item.sys_id)>&nbsp;</span>-->        
+      		  <button id="tooltip-button-{{::item.sys_id}}" type="button" class="cd-tooltip viewBtn btn btn-default icon-info btn-icon" uib-popover-template="'ARI-tooltip'" popover-placement='bottom-left' popover-trigger='outsideClick' popover-is-open='item.isInfoPopoverOpen' aria-haspopup='true' aria-expanded="{{item.isInfoPopoverOpen}}" data-container="body"><span class="sr-only">${Information}</span></button>              
+            </div>              
+            <div>
+			 <a href="?id=sc_cat_item&sys_id=35175cb7db356700561fb29a68961922&sysparm_ar={{::item.sys_id}}" title="Click to complete Attendance Review">{{::item.employee}}</a>              
+            </div>
+            <small class="text-muted">
+            	<span> {{::item.number}}</span>
+                <span class="views pad-right"> • </span>
+            	<span> Trigger Type: {{::item.review_trigger}}</span>
+            </small>
+          </div>
+          <div class="col-xs-3">
+              <glyph sn-char="calendar" />
+              <sn-day-ago date="::item.updated_on"/>
+          </div>
+          <div class="col-xs-1">
+              <span class="pull-right"><a class="btn-xs btn-primary pull-right" title="View absence history for {{::item.employee}} (new window)" href="{{::item.history_url}}" target="_blank">History</a></span>
+          </div>          
+      </div>
+  </div>  
+  
+</div>]]></template>
+    </sp_widget>
+</record_update>
