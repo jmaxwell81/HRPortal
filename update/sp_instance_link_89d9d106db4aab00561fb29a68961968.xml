@@ -5,7 +5,7 @@
         <class_name/>
         <color>success</color>
         <css/>
-        <glyph>folder-open-o</glyph>
+        <glyph>area-chart</glyph>
         <id/>
         <kb_article/>
         <kb_category/>
@@ -14,26 +14,26 @@
         <roles/>
         <sc_cat_item/>
         <sc_category/>
-        <short_description>View the HR policy documents</short_description>
+        <short_description>View HR reports</short_description>
         <size>md</size>
         <sp_column display_value="2">7a507fd4db6a2b40561fb29a689619bb</sp_column>
-        <sp_page/>
+        <sp_page display_value="hr_kb_sn_dash">d8342a19db5367c0e9c39334ca9619e4</sp_page>
         <sp_widget display_value="Icon Link Overlay - BAE">f94ea54cdb2ee740561fb29a68961971</sp_widget>
         <sys_class_name>sp_instance_link</sys_class_name>
         <sys_created_by>Andy.bourner@baesystems.com</sys_created_by>
         <sys_created_on>2018-11-29 16:22:02</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>89d9d106db4aab00561fb29a68961968</sys_id>
-        <sys_mod_count>7</sys_mod_count>
-        <sys_name>HR Polices</sys_name>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>HR Reports</sys_name>
         <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
         <sys_update_name>sp_instance_link_89d9d106db4aab00561fb29a68961968</sys_update_name>
-        <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
-        <sys_updated_on>2018-12-19 13:34:47</sys_updated_on>
-        <title>HR Polices</title>
+        <sys_updated_by>Andy.bourner@baesystems.com</sys_updated_by>
+        <sys_updated_on>2019-01-28 17:11:50</sys_updated_on>
+        <title>HR Reports</title>
         <type>page</type>
         <url/>
         <widget_parameters><![CDATA[{
