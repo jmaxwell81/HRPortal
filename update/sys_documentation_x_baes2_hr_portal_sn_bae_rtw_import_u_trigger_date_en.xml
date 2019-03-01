@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="u_trigger_date" label="TRIGGER_DATE" language="en" table="x_baes2_hr_portal_sn_bae_rtw_import">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>u_trigger_date</element>

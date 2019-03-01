@@ -1,55 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="task" label="HR Portal RTW Request" max_length="40" name="x_baes2_hr_portal_rtw_request" sizeclass="269" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="task" label="HR Portal RTW Request" max_length="40" name="x_baes2_hr_portal_rtw_request" type="collection">
         <element choice="1" label="Absence Accident At Work" max_length="40" name="absence_accident_at_work" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element choice="1" label="Absence Accident Reported Correctly" max_length="40" name="absence_accident_reported_correctly" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element choice="1" label="Absence BAE Procedures Followed" max_length="40" name="absence_bae_procedures_followed" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element choice="1" label="Absence Doctors Visit" max_length="40" name="absence_doctors_visit" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element choice="1" label="Absence Doctors Visit Medication" max_length="1024" name="absence_doctors_visit_medication" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element label="Absence Employee Actions" max_length="1024" name="absence_employee_actions" type="string_full_utf8"/>
         <element choice="1" label="Absence Employee BAE Support" max_length="40" name="absence_employee_bae_support" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element choice="1" label="Absence Employee Job Impact" max_length="40" name="absence_employee_job_impact" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element label="Absence End" max_length="40" name="absence_end" type="glide_date"/>
         <element label="Absence Expected Return" max_length="40" name="absence_expected_return" type="glide_date"/>
         <element choice="1" label="Absence Occupational Health Referral" max_length="40" name="absence_occupational_health_referral" type="choice">
             <choice>
-                <element label="No" value="0"/>
-                <element label="Yes" value="1"/>
+                <element inactive_on_update="false" label="No" value="0"/>
+                <element inactive_on_update="false" label="Yes" value="1"/>
             </choice>
         </element>
         <element label="Absence Reason" max_length="1024" name="absence_reason" type="string_full_utf8"/>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sm_config_module">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sm_config_module">
     <sm_config_module action="INSERT_OR_UPDATE">
         <app_name display_value="HR Portal">b8ced9b8db7da300e9c39334ca961910</app_name>
         <aspect>approval</aspect>

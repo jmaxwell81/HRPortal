@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="HR Portal Headcount" max_length="40" name="x_baes2_hr_portal_headcount" type="collection">
         <element label="employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
         <element label="Line Manager" max_length="32" name="line_manager" reference="sys_user" type="reference"/>

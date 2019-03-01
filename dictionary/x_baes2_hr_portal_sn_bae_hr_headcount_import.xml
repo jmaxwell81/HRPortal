@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="sys_import_set_row" label="sn_bae_hr_headcount_import" max_length="40" name="x_baes2_hr_portal_sn_bae_hr_headcount_import" sizeclass="8804" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="sn_bae_hr_headcount_import" max_length="40" name="x_baes2_hr_portal_sn_bae_hr_headcount_import" type="collection">
         <element attributes="import_attribute_name=Assignment End Date" label="Assignment End Date" max_length="40" name="u_assignment_end_date" type="glide_date"/>
         <element attributes="import_attribute_name=Assignment Start Date" label="Assignment Start Date" max_length="40" name="u_assignment_start_date" type="glide_date"/>
         <element attributes="import_attribute_name=Assignment Type,edge_encryption_enabled=true" label="Assignment Type" max_length="40" name="u_assignment_type" type="string"/>
@@ -48,7 +47,7 @@
         <element attributes="import_attribute_name=Host Business Level 1,edge_encryption_enabled=true" label="Host Business Level 1" max_length="40" name="u_host_business_level_1" type="string"/>
         <element attributes="import_attribute_name=Host Business Level 2,edge_encryption_enabled=true" label="Host Business Level 2" max_length="40" name="u_host_business_level_2" type="string"/>
         <element attributes="import_attribute_name=Host Business Level 3,edge_encryption_enabled=true" label="Host Business Level 3" max_length="40" name="u_host_business_level_3" type="string"/>
-        <element attributes="import_attribute_name=Host Contractual Working Hours" label="Host Contractual Working Hours " max_length="40" name="u_host_contrac__working_hours" type="integer"/>
+        <element attributes="import_attribute_name=Host Contractual Working Hours" label="Host Contractual Working Hours" max_length="40" name="u_host_contrac__working_hours" type="integer"/>
         <element attributes="import_attribute_name=Host Cost Centre,edge_encryption_enabled=true" label="Host Cost Centre" max_length="40" name="u_host_cost_centre" type="string"/>
         <element attributes="import_attribute_name=Host Country of Work,edge_encryption_enabled=true" label="Host Country of Work" max_length="40" name="u_host_country_of_work" type="string"/>
         <element attributes="import_attribute_name=Host Function,edge_encryption_enabled=true" label="Host Function" max_length="40" name="u_host_function" type="string"/>

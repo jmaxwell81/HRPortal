@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sc_cat_item_category">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
     <sc_cat_item_category action="INSERT_OR_UPDATE">
         <sc_cat_item display_value="Return To Work Interview Form">52040670dbfda300e9c39334ca9619d5</sc_cat_item>
         <sc_category display_value="HR Portal Forms">9c5fe934dbbda300e9c39334ca9619d6</sc_category>

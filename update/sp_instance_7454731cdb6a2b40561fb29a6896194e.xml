@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_instance">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
     <sp_instance action="INSERT_OR_UPDATE">
         <active>true</active>
         <class_name/>
@@ -18,7 +17,7 @@
         <sys_created_on>2018-12-19 13:39:24</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>7454731cdb6a2b40561fb29a6896194e</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
         <sys_policy/>
@@ -26,7 +25,7 @@
         <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
         <sys_update_name>sp_instance_7454731cdb6a2b40561fb29a6896194e</sys_update_name>
         <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
-        <sys_updated_on>2018-12-19 13:41:52</sys_updated_on>
+        <sys_updated_on>2019-02-05 11:02:36</sys_updated_on>
         <title/>
         <url/>
         <widget_parameters><![CDATA[{
@@ -35,7 +34,7 @@
 		"displayValue": "5"
 	},
 	"kb_category": {
-		"value": "4c2f265bdb792700e9c39334ca9619dd",
+		"value": "dd0a9e731bdb63c0f441eb186e4bcbb9",
 		"displayValue": "HR-News"
 	}
 }]]></widget_parameters>

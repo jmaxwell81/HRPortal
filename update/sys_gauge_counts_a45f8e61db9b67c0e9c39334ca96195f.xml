@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_gauge_counts">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_gauge_counts">
     <sys_gauge_counts action="INSERT_OR_UPDATE">
         <gauge_id display_value="HR Staff Existance Overview">be5e0a61db9b67c0e9c39334ca96199b</gauge_id>
         <image/>
@@ -7,7 +6,7 @@
         <omit_line>false</omit_line>
         <order>20</order>
         <override_style/>
-        <query table="asmt_assessment_instance">metric_type=d957ddd5db0a2b00e9c39334ca961984^state=ready^EQ<item display_table="asmt_metric_type" display_value="HR Existence Audit" endquery="false" field="metric_type" goto="false" newquery="false" operator="=" or="false" value="d957ddd5db0a2b00e9c39334ca961984"/>
+        <query table="asmt_assessment_instance">metric_type=d957ddd5db0a2b00e9c39334ca961984^state=ready^EQ<item endquery="false" field="metric_type" goto="false" newquery="false" operator="=" or="false" value="d957ddd5db0a2b00e9c39334ca961984"/>
             <item endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="ready"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </query>

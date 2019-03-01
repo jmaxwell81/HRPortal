@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_choice action="INSERT_OR_UPDATE" field="state" table="x_baes2_hr_portal_task" version="3">
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -152,7 +151,7 @@
             <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
             <sys_created_on>2018-11-13 09:14:30</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>4a8e91b8db7da300e9c39334ca961917</sys_id>
+            <sys_id>ccf76e221b97af80da8f87fe6e4bcb48</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>state</sys_name>
             <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>

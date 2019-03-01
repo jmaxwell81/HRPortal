@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sc_cat_item_catalog">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
     <sc_cat_item_catalog action="INSERT_OR_UPDATE">
         <sc_cat_item display_value="Return To Work Interview Form">52040670dbfda300e9c39334ca9619d5</sc_cat_item>
         <sc_catalog display_value="HR Portal Catalog">bebe59b8db7da300e9c39334ca9619cc</sc_catalog>
