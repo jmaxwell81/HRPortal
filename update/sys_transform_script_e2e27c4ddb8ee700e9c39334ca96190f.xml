@@ -22,23 +22,32 @@ if ((source.u_gci.nil() && source.u_employee_number.nil() && source.u_email_addr
 	}
 	gr_user.query();
 	if (gr_user.next()){
-		// Try to match MANAGER GCI / EMAIL reference		
+		// Try to match DELEGATE / MANAGER GCI / EMAIL reference		
 		var gr_manager = new GlideRecord("sys_user");
-		if (!source.u_home_line_manager_email.nil()) {
-			gr_manager.addQuery("email", source.u_home_line_manager_email);
+		if (!source.u_delegate.nil()) {
+			target.delegated = true;			
+			target.delegate = source.u_home_line_manager_email;			
+			target.u_home_line_manager_email = source.u_delegate;
+			gr_manager.addQuery("email", source.u_delegate);			
 		} else {
-			gr_manager.addQuery("u_gci", source.u_home_line_manager_gci);			
+			target.delegated = false;			
+			target.u_home_line_manager_email = source.u_home_line_manager_email;			
+			if (!source.u_home_line_manager_email.nil()) {
+				gr_manager.addQuery("email", source.u_home_line_manager_email);
+			} else {
+				gr_manager.addQuery("u_gci", source.u_home_line_manager_gci);			
+			}
 		}
 		gr_manager.query();
 		if (gr_manager.next()){
 			target.employee = gr_user.sys_id;
 			target.line_manager = gr_manager.sys_id;			
 		} else {
-			gs.info('HR HEADCOUNT TRANSFORM ERROR - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);			
+			gs.info('HR HEADCOUNT TRANSFORM ERROR#1 - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);			
 			ignore = true;		
 		}			
 	} else {
-		gs.info('HR HEADCOUNT TRANSFORM ERROR - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);		
+		gs.info('HR HEADCOUNT TRANSFORM ERROR#2 - EMPLOYEE GCI=' + source.u_gci + '   EMPLOYEE NUMBER=' + source.u_employee_number + '   MANAGER=' + source.u_home_line_manager_gci + '   MANAGER EMAIL=' + source.u_home_line_manager_email);		
 		ignore = true;		
 	}	
 }
@@ -49,7 +58,7 @@ if ((source.u_gci.nil() && source.u_employee_number.nil() && source.u_email_addr
         <sys_created_on>2018-11-26 10:58:15</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>e2e27c4ddb8ee700e9c39334ca96190f</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
         <sys_policy/>
@@ -57,7 +66,7 @@ if ((source.u_gci.nil() && source.u_employee_number.nil() && source.u_email_addr
         <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
         <sys_update_name>sys_transform_script_e2e27c4ddb8ee700e9c39334ca96190f</sys_update_name>
         <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
-        <sys_updated_on>2018-11-27 15:40:02</sys_updated_on>
+        <sys_updated_on>2019-03-04 14:18:59</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>

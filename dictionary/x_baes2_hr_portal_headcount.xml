@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="HR Portal Headcount" max_length="40" name="x_baes2_hr_portal_headcount" type="collection">
+        <element label="Delegate" max_length="256" name="delegate" type="string"/>
+        <element label="Delegated" max_length="40" name="delegated" type="boolean"/>
         <element label="employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
         <element label="Line Manager" max_length="32" name="line_manager" reference="sys_user" type="reference"/>
         <element label="Email Address" max_length="40" name="u_email_address" type="string"/>
@@ -9,7 +11,7 @@
         <element label="GCI" max_length="40" name="u_gci" type="string"/>
         <element label="Home Business Level 3" max_length="40" name="u_home_business_level_3" type="string"/>
         <element label="Home Cost Centre" max_length="40" name="u_home_cost_centre" type="string"/>
-        <element label="Home Line Manager Email" max_length="40" name="u_home_line_manager_email" type="string"/>
+        <element label="Home Line Manager Email" max_length="256" name="u_home_line_manager_email" type="string"/>
         <element label="Home Line Manager GCI" max_length="40" name="u_home_line_manager_gci" type="string"/>
         <element label="Home Line Manager Name" max_length="40" name="u_home_line_manager_name" type="string"/>
         <element label="Home Team" max_length="40" name="u_home_team" type="string"/>

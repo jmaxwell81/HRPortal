@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
     <sys_ui_action action="INSERT_OR_UPDATE">
         <action_name>sysverb_refreshHRExistenceUsers</action_name>
-        <active>true</active>
+        <active>false</active>
         <client>false</client>
         <client_script_v2/>
         <comments>This function is used to update the assessments for the HR Existence Audit, i.e it will replace the associated Users list with the Managers from the latest HR Headcount Import. </comments>
@@ -92,7 +92,7 @@ function sysverb_refreshHRExistenceUsers() {
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>41d2ad9ddb0a2b00e9c39334ca961927</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Refresh Assessment Users</sys_name>
         <sys_overrides/>
         <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
@@ -101,7 +101,7 @@ function sysverb_refreshHRExistenceUsers() {
         <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
         <sys_update_name>sys_ui_action_41d2ad9ddb0a2b00e9c39334ca961927</sys_update_name>
         <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
-        <sys_updated_on>2018-11-27 11:10:49</sys_updated_on>
+        <sys_updated_on>2019-03-04 09:05:30</sys_updated_on>
         <table>x_baes2_hr_portal_headcount</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

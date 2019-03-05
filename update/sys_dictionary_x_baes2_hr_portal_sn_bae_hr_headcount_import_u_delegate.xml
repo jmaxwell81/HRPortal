@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="u_last_name" table="x_baes2_hr_portal_sn_bae_hr_headcount_import">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="u_delegate" table="x_baes2_hr_portal_sn_bae_hr_headcount_import">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>import_attribute_name=Last Name,edge_encryption_enabled=true</attributes>
+        <attributes>import_attribute_name=Delegate,edge_encryption_enabled=true</attributes>
         <audit>false</audit>
         <calculation/>
         <choice>0</choice>
         <choice_field/>
         <choice_table/>
-        <column_label>Last Name</column_label>
+        <column_label>Delegate</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -22,7 +22,7 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>u_last_name</element>
+        <element>u_delegate</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
@@ -49,14 +49,14 @@
         <sys_created_by>robin.burrows@baesystems.com</sys_created_by>
         <sys_created_on>2019-03-04 13:21:56</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>c9afb9ecdb00f300610f7b47f496192f</sys_id>
+        <sys_id>41afb9ecdb00f300610f7b47f496192a</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Last Name</sys_name>
+        <sys_name>Delegate</sys_name>
         <sys_package display_value="HR Portal" source="x_baes2_hr_portal">618e51b8db7da300e9c39334ca96197c</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="HR Portal">618e51b8db7da300e9c39334ca96197c</sys_scope>
-        <sys_update_name>sys_dictionary_x_baes2_hr_portal_sn_bae_hr_headcount_import_u_last_name</sys_update_name>
+        <sys_update_name>sys_dictionary_x_baes2_hr_portal_sn_bae_hr_headcount_import_u_delegate</sys_update_name>
         <sys_updated_by>robin.burrows@baesystems.com</sys_updated_by>
         <sys_updated_on>2019-03-04 13:21:56</sys_updated_on>
         <table_reference>false</table_reference>
